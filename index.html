@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fleet Remarketing — Choose a Design Concept</title>
+<meta name="description" content="Preview and choose your preferred Fleet Remarketing website design concept.">
+<meta name="theme-color" content="#080b09">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;600;700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080b09; --panel:rgba(255,255,255,.03); --card:rgba(17,23,20,.72);
+  --surface:rgba(255,255,255,.05);
+  --ink:#f3f8f0; --txt:#cdd8ca; --txt-2:#8b9a8b; --txt-3:#63715f;
+  --brand:#8bee4b; --brand-2:#63d626; --brand-3:#b6ff6f; --brand-ink:#06140b;
+  --brand-soft:rgba(139,238,75,.12);
+  --accent:#ffb638; --accent-2:#ffca63; --accent-ink:#241500; --accent-soft:rgba(255,182,56,.13);
+  --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.15);
+  --glass-border:rgba(255,255,255,.1);
+  --grad:linear-gradient(135deg,#63d626 0%,#b6ff6f 100%);
+  --grad-amber:linear-gradient(135deg,#ff9e0f 0%,#ffca63 100%);
+  --shadow:0 34px 80px -34px rgba(0,0,0,.85);
+  --glow-brand:0 0 34px rgba(139,238,75,.32);
+  --grid-line:rgba(255,255,255,.032);
+  --r:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',system-ui,-apple-system,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--txt);
+  line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden;min-height:100vh;display:flex;flex-direction:column}
+h1,h2,h3,h4,.display{font-family:'Bricolage Grotesque',sans-serif;line-height:1.08;letter-spacing:-.02em;font-weight:700;color:var(--ink)}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+svg{stroke-linecap:round;stroke-linejoin:round}
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px;width:100%}
+
+/* background fx */
+.bg-fx{position:fixed;inset:0;z-index:-2;pointer-events:none;background:var(--bg)}
+.bg-fx::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(56% 44% at 14% -6%,rgba(139,238,75,.16),transparent 62%),
+             radial-gradient(46% 40% at 100% 4%,rgba(255,182,56,.1),transparent 60%),
+             radial-gradient(64% 50% at 50% 116%,rgba(99,214,38,.11),transparent 62%)}
+.bg-fx::after{content:"";position:absolute;inset:0;
+  background-image:linear-gradient(var(--grid-line) 1px,transparent 1px),linear-gradient(90deg,var(--grid-line) 1px,transparent 1px);
+  background-size:66px 66px;-webkit-mask-image:radial-gradient(circle at 50% 20%,#000,transparent 80%);mask-image:radial-gradient(circle at 50% 20%,#000,transparent 80%)}
+
+/* header */
+header{padding:26px 0}
+.head-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img{height:34px;width:auto}
+.brand .div{width:1px;height:26px;background:var(--line-2)}
+.brand .tag{font-family:'Bricolage Grotesque';font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--txt-2)}
+.head-cta{display:inline-flex;align-items:center;gap:8px;font-size:.86rem;color:var(--txt-2)}
+.head-cta a{color:var(--brand);font-weight:600}
+.head-cta a:hover{text-decoration:underline}
+
+/* hero */
+.hero{text-align:center;padding:54px 0 20px}
+.eyebrow{display:inline-flex;align-items:center;gap:8px;font-family:'Bricolage Grotesque';font-size:.74rem;font-weight:600;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--brand);padding:7px 15px;border:1px solid var(--line-2);
+  border-radius:100px;background:var(--brand-soft);margin-bottom:22px}
+.eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--brand);box-shadow:0 0 12px var(--brand)}
+.hero h1{font-size:clamp(2.3rem,5.4vw,3.7rem);font-weight:800;margin-bottom:16px}
+.hero h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero p{color:var(--txt-2);font-size:1.1rem;max-width:600px;margin:0 auto}
+
+/* cards grid */
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;padding:52px 0 40px}
+.card{position:relative;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--glass-border);border-radius:var(--r);
+  overflow:hidden;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);transition:.35s cubic-bezier(.2,.8,.2,1)}
+a.card:hover{transform:translateY(-8px);border-color:var(--brand);box-shadow:var(--shadow),var(--glow-brand)}
+.shot{position:relative;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid var(--line)}
+.shot img{width:100%;height:100%;object-fit:cover;object-position:top center;transition:.6s cubic-bezier(.2,.8,.2,1)}
+a.card:hover .shot img{transform:scale(1.05)}
+.shot::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(6,10,8,.4),transparent 45%);pointer-events:none}
+.cbody{padding:22px 24px 24px;display:flex;flex-direction:column;gap:9px;flex:1}
+.ctop{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.cnum{font-family:'Bricolage Grotesque';font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brand)}
+.badge{font-family:'Bricolage Grotesque';font-size:.64rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  padding:5px 10px;border-radius:100px;border:1px solid var(--line-2);color:var(--txt-2)}
+.badge.rec{background:var(--grad-amber);color:var(--accent-ink);border-color:transparent}
+.badge.lock{color:var(--accent);border-color:rgba(255,182,56,.4);background:var(--accent-soft)}
+.card h3{font-size:1.3rem}
+.card p{color:var(--txt-2);font-size:.92rem;flex:1}
+.cbtn{display:inline-flex;align-items:center;gap:8px;margin-top:6px;font-family:'Bricolage Grotesque';font-weight:600;font-size:.92rem;color:var(--ink)}
+.cbtn svg{width:17px;height:17px;color:var(--brand);transition:.25s}
+a.card:hover .cbtn svg{transform:translateX(4px)}
+.cbtn.disabled{color:var(--txt-3)}
+.cbtn.disabled svg{color:var(--txt-3)}
+
+/* locked card */
+.card.locked{cursor:not-allowed}
+.card.locked .shot img{filter:blur(3px) grayscale(.5) brightness(.5)}
+.lockover{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;
+  background:rgba(6,10,8,.42);backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}
+.lockover .ring{width:58px;height:58px;border-radius:50%;background:var(--accent-soft);border:1px solid rgba(255,182,56,.45);
+  display:grid;place-items:center;color:var(--accent);box-shadow:0 0 30px rgba(255,182,56,.25)}
+.lockover .ring svg{width:26px;height:26px}
+.lockover b{font-family:'Bricolage Grotesque';font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-2)}
+
+/* note + footer */
+.note{text-align:center;color:var(--txt-3);font-size:.9rem;padding:6px 0 40px}
+.note svg{width:14px;height:14px;vertical-align:-2px;margin-right:5px;color:var(--brand)}
+footer{margin-top:auto;border-top:1px solid var(--line);padding:28px 0;color:var(--txt-3);font-size:.85rem}
+.foot-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+@media(max-width:920px){.grid{grid-template-columns:1fr;max-width:520px;margin:0 auto}}
+@media(max-width:600px){
+  .wrap{padding:0 18px}
+  .hero{padding:34px 0 6px}
+  .grid{padding:34px 0 24px;gap:20px}
+  .head-cta{display:none}
+  .foot-inner{flex-direction:column;text-align:center}
+}
+</style>
+</head>
+<body>
+
+<div class="bg-fx" aria-hidden="true"></div>
+
+<header>
+  <div class="wrap head-inner">
+    <div class="brand">
+      <img src="assets/logo.png" alt="Fleet Remarketing">
+      <span class="div"></span>
+      <span class="tag">Design Concepts</span>
+    </div>
+    <div class="head-cta">Questions? <a href="mailto:office@fleetremarket.com">office@fleetremarket.com</a></div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Website Preview</span>
+    <h1>Choose your <span class="g">concept</span>.</h1>
+    <p>Three design directions for the new Fleet Remarketing website. Open any concept to explore the full, interactive site — then tell us which one you love.</p>
+  </div>
+</section>
+
+<section class="wrap">
+  <div class="grid">
+
+    <!-- Concept 1 -->
+    <a class="card" href="concept-1.html" target="_blank" rel="noopener">
+      <div class="shot"><img src="previews/concept-1.png" alt="Concept 1 preview"></div>
+      <div class="cbody">
+        <div class="ctop"><span class="cnum">Concept 01</span><span class="badge">Light · Green</span></div>
+        <h3>The 300% Guarantee</h3>
+        <p>A bright, energetic green theme with the signature draggable car-on-a-road scrollbar and a bold headline.</p>
+        <span class="cbtn">View concept <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </a>
+
+    <!-- Concept 2 -->
+    <a class="card" href="concept-2/index.html" target="_blank" rel="noopener">
+      <div class="shot"><img src="previews/concept-2.png" alt="Concept 2 preview"></div>
+      <div class="cbody">
+        <div class="ctop"><span class="cnum">Concept 02</span><span class="badge rec">Recommended</span></div>
+        <h3>Premium Dark Fintech</h3>
+        <p>Glassmorphism, neon-green + amber accents, a light/dark toggle and a scroll-linked vehicle slider. Fully mobile-optimized.</p>
+        <span class="cbtn">View concept <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </div>
+    </a>
+
+    <!-- Concept 3 — locked -->
+    <div class="card locked" aria-disabled="true">
+      <div class="shot">
+        <img src="previews/concept-3.png" alt="Concept 3 preview (under construction)">
+        <div class="lockover">
+          <div class="ring"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+          <b>Under Construction</b>
+        </div>
+      </div>
+      <div class="cbody">
+        <div class="ctop"><span class="cnum">Concept 03</span><span class="badge lock">Locked</span></div>
+        <h3>Blue Direction</h3>
+        <p>A refined blue variant with an added FAQ section. Still being built — available to preview soon.</p>
+        <span class="cbtn disabled">Coming soon <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3l9 5-9 5-9-5 9-5z"/><path d="M3 13l9 5 9-5"/></svg>Each concept opens in a new tab so you can compare them side by side.</p>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>© 2026 Fleet Remarketing — Design preview</span>
+    <span>Give us the VIN — we'll handle your selling nationwide.</span>
+  </div>
+</footer>
+
+</body>
+</html>

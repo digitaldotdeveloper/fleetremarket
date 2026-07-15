@@ -1,0 +1,9 @@
+# dev leftovers / not used by the hosted site
+concept-2/some images/
+concept-2/slider/
+concept-2/PHOTO-PROMPT.md
+*.bak.html
+concept-2/*.bak.html
+
+# local build artifacts
+*.zip
