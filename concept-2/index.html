@@ -36,11 +36,12 @@
   --glow-brand:0 0 34px rgba(139,238,75,.35);
   --glow-amber:0 0 30px rgba(255,182,56,.32);
   --grid-line:rgba(255,255,255,.032);
-  --hero-scrim:linear-gradient(90deg,rgba(6,10,8,.94) 0%,rgba(6,10,8,.78) 30%,rgba(6,10,8,.45) 58%,rgba(6,10,8,.12) 82%,rgba(6,10,8,0) 100%),linear-gradient(0deg,rgba(6,10,8,.7),transparent 44%);
+  --hero-scrim:linear-gradient(90deg,rgba(6,10,8,.94) 0%,rgba(6,10,8,.78) 30%,rgba(6,10,8,.45) 58%,rgba(6,10,8,.12) 82%,rgba(6,10,8,0) 100%),linear-gradient(0deg,rgba(6,10,8,.7),transparent 44%),linear-gradient(180deg,rgba(6,10,8,.78) 0%,rgba(6,10,8,.42) 13%,rgba(6,10,8,0) 30%);
   --hero-scrim-m:linear-gradient(180deg,rgba(6,10,8,.9) 0%,rgba(6,10,8,.62) 52%,rgba(6,10,8,.86) 100%);
   --hero-tsh:0 2px 30px rgba(0,0,0,.55);
   --nav-bg:rgba(10,15,12,.72); --topbar-bg:rgba(255,255,255,.025);
   --card-img-scrim:linear-gradient(to top,rgba(4,8,6,.82),transparent 55%);
+  --float-bg:rgba(13,19,16,.9);
   --r:18px; --r-sm:12px; --maxw:1200px;
 }
 :root[data-theme="light"]{
@@ -62,11 +63,12 @@
   --glow-brand:0 0 0 transparent;
   --glow-amber:0 0 0 transparent;
   --grid-line:rgba(20,33,13,.038);
-  --hero-scrim:linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.9) 30%,rgba(255,255,255,.62) 54%,rgba(255,255,255,.2) 80%,rgba(255,255,255,0) 100%),linear-gradient(0deg,rgba(255,255,255,.34),transparent 42%);
+  --hero-scrim:linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.9) 30%,rgba(255,255,255,.62) 54%,rgba(255,255,255,.2) 80%,rgba(255,255,255,0) 100%),linear-gradient(0deg,rgba(255,255,255,.34),transparent 42%),linear-gradient(180deg,rgba(255,255,255,.9) 0%,rgba(255,255,255,.55) 13%,rgba(255,255,255,0) 30%);
   --hero-scrim-m:linear-gradient(180deg,rgba(246,248,242,.94) 0%,rgba(246,248,242,.66) 52%,rgba(246,248,242,.9) 100%);
   --hero-tsh:0 1px 20px rgba(255,255,255,.9),0 2px 6px rgba(255,255,255,.7);
   --nav-bg:rgba(255,255,255,.82); --topbar-bg:rgba(20,33,13,.03);
   --card-img-scrim:linear-gradient(to top,rgba(8,10,9,.66),transparent 55%);
+  --float-bg:rgba(255,255,255,.95);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;overflow-x:hidden}
@@ -85,7 +87,7 @@ section{position:relative;scroll-margin-top:110px}
 .eyebrow::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--brand);box-shadow:0 0 12px var(--brand),0 0 4px var(--brand)}
 .eyebrow.amber{color:var(--accent);background:var(--accent-soft)}
 .eyebrow.amber::before{background:var(--accent);box-shadow:0 0 12px var(--accent)}
-.h-sec{font-size:clamp(2rem,4.6vw,3.25rem);margin:16px 0 16px}
+.h-sec{font-size:clamp(2rem,4.6vw,3.25rem);margin:16px 0 16px;text-wrap:balance}
 .sub-sec{color:var(--txt-2);font-size:1.06rem;max-width:640px}
 .grad-txt{background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;color:var(--brand)}
 .hero h1 .grad-txt{background-image:var(--grad-hero);text-shadow:none}
@@ -121,15 +123,15 @@ section{position:relative;scroll-margin-top:110px}
 
 /* ============ NAV ============ */
 header.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.35s ease}
-.topbar{background:var(--topbar-bg);color:var(--txt-2);border-bottom:1px solid var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.topbar{background:var(--topbar-bg);color:var(--txt);border-bottom:1px solid var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 .topbar-inner{display:flex;align-items:center;justify-content:space-between;gap:20px;height:42px;font-size:.8rem}
-.tb-left{display:flex;align-items:center;gap:9px;color:var(--txt-2);font-weight:500}
+.tb-left{display:flex;align-items:center;gap:9px;color:var(--txt);font-weight:500}
 .tb-left svg{width:14px;height:14px;color:var(--brand)}
 .tb-right{display:flex;align-items:center;gap:16px}
-.tb-right a,.tb-right .tb-hours{display:inline-flex;align-items:center;gap:7px;color:var(--txt-2);font-weight:500;white-space:nowrap;transition:.2s}
-.tb-right a:hover{color:var(--ink)}
+.tb-right a,.tb-right .tb-hours{display:inline-flex;align-items:center;gap:7px;color:var(--ink);font-weight:600;white-space:nowrap;transition:.2s}
+.tb-right a:hover{color:var(--brand)}
 .tb-right svg{width:15px;height:15px;color:var(--brand);flex-shrink:0}
-.tb-right .lbl{opacity:.6;font-weight:400}
+.tb-right .lbl{color:var(--txt);font-weight:500}
 .tb-div{width:1px;height:15px;background:var(--line-2)}
 .tb-hide{display:inline-flex}
 .nav-shell{transition:.35s ease;border-bottom:1px solid transparent}
@@ -142,8 +144,8 @@ header.nav.scrolled .nav-shell{background:var(--nav-bg);backdrop-filter:blur(18p
 :root[data-theme="light"] .logo-l{display:block}
 :root[data-theme="light"] .logo-d{display:none}
 .nav-links{display:flex;align-items:center;gap:2px}
-.nav-links a{font-size:.89rem;font-weight:500;color:var(--txt-2);padding:9px 13px;border-radius:9px;transition:.2s;white-space:nowrap}
-.nav-links a:hover{color:var(--ink);background:var(--surface)}
+.nav-links a{font-size:.89rem;font-weight:500;color:var(--ink);padding:9px 13px;border-radius:9px;transition:.2s;white-space:nowrap}
+.nav-links a:hover{color:var(--brand);background:var(--surface)}
 .nav-right{display:flex;align-items:center;gap:10px}
 .theme-toggle{width:42px;height:42px;border-radius:11px;border:1px solid var(--glass-border);background:var(--surface);color:var(--ink);
   cursor:pointer;display:grid;place-items:center;transition:.25s;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);flex-shrink:0}
@@ -213,13 +215,13 @@ header.nav.scrolled .nav-shell{background:var(--nav-bg);backdrop-filter:blur(18p
 .hf-field{margin-bottom:10px}
 .hero-form input,.hero-form select{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line-2);
   background:var(--panel);color:var(--ink);font-family:inherit;font-size:.9rem;outline:none;transition:.2s}
-.hero-form input::placeholder{color:var(--txt-3)}
+.hero-form input::placeholder{color:var(--txt-2)}
 .hero-form select{color:var(--txt-2)}
 .hero-form select option{color:#16210d}
 .hero-form input:focus,.hero-form select:focus{border-color:var(--brand);box-shadow:0 0 0 4px var(--brand-soft)}
 .hero-form .btn{width:100%;justify-content:center;margin-top:6px}
-.hf-secure{display:flex;align-items:center;justify-content:center;gap:7px;font-size:.76rem;color:var(--txt-3);margin-top:12px}
-.hf-secure svg{width:13px;height:13px;color:var(--brand)}
+.hf-secure{display:flex;align-items:center;justify-content:center;gap:7px;font-size:.8rem;font-weight:500;color:var(--txt);margin-top:12px}
+.hf-secure svg{width:14px;height:14px;color:var(--brand)}
 .hf-secure.ok{color:var(--brand)}
 
 /* ============ STATS BAND ============ */
@@ -237,6 +239,7 @@ header.nav.scrolled .nav-shell{background:var(--nav-bg);backdrop-filter:blur(18p
 .panel-sec{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .head-center{text-align:center;max-width:680px;margin:0 auto 58px}
 .head-center .sub-sec{margin:0 auto}
+.h-sec .ln{display:block}
 
 /* glass card base — shared by proc/auc/ben/perk/member/office/fcard */
 .glass{background:var(--surface);border:1px solid var(--glass-border);border-radius:var(--r);
@@ -279,16 +282,18 @@ header.nav.scrolled .nav-shell{background:var(--nav-bg);backdrop-filter:blur(18p
 .feat-media .shot{border-radius:var(--r);width:100%;aspect-ratio:4/3;object-fit:cover;box-shadow:var(--shadow);border:1px solid var(--glass-border)}
 .feat-media .frame{position:absolute;inset:-14px;border:1px solid var(--line-2);border-radius:calc(var(--r) + 8px);z-index:-1}
 .feat-media .glowdot{position:absolute;inset:-40px;z-index:-2;background:radial-gradient(50% 50% at 50% 50%,var(--brand-soft),transparent 70%);filter:blur(20px)}
-.feat-media .float{position:absolute;bottom:-24px;background:var(--surface);border:1px solid var(--glass-border);border-radius:var(--r-sm);
+.feat-media .float{position:absolute;bottom:-24px;background:var(--float-bg);border:1px solid var(--glass-border);border-radius:var(--r-sm);
   padding:15px 19px;box-shadow:var(--shadow);display:flex;gap:13px;align-items:center;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
 .feature:not(.rev) .feat-media .float{right:-20px}
 .feature.rev .feat-media .float{left:-20px}
 .feat-media .float .ico{width:44px;height:44px;border-radius:50%;background:var(--brand-soft);display:grid;place-items:center;color:var(--brand)}
 .feat-media .float .ico svg{width:22px;height:22px}
 .feat-media .float b{font-family:'Bricolage Grotesque';display:block;font-size:1.02rem;color:var(--ink)}
-.feat-media .float span{font-size:.8rem;color:var(--txt-3)}
+.feat-media .float span{font-size:.84rem;font-weight:500;color:var(--txt)}
 .feat-num{font-family:'Bricolage Grotesque';font-weight:700;font-size:.8rem;letter-spacing:.14em;color:var(--brand);text-transform:uppercase}
 .feature h3{font-size:clamp(1.6rem,3vw,2.3rem);margin:12px 0 14px}
+.feature h3 .hl-fig{display:block}
+.feature h3 .hl-fig b{font-size:1.5em;font-weight:800;letter-spacing:-.03em;white-space:nowrap;line-height:1.1}
 .feature p.desc{color:var(--txt-2);font-size:1.04rem;margin-bottom:22px}
 .check-list{list-style:none;display:grid;gap:13px;margin-bottom:26px}
 .check-list li{display:flex;gap:12px;align-items:flex-start;color:var(--txt)}
@@ -308,7 +313,7 @@ header.nav.scrolled .nav-shell{background:var(--nav-bg);backdrop-filter:blur(18p
 
 /* ============ BENEFITS (bento) ============ */
 .ben-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
-.ben{padding:34px 28px;display:flex;flex-direction:column;gap:8px;position:relative;overflow:hidden;grid-column:span 2}
+.ben{padding:34px 28px;display:flex;flex-direction:column;gap:8px;position:relative;overflow:hidden;grid-column:span 3}
 .ben.big{grid-column:span 3;background:linear-gradient(150deg,var(--brand-soft),transparent 62%),var(--surface)}
 .ben.wide{grid-column:span 3}
 .ben .ic{width:60px;height:60px;border-radius:16px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;margin-bottom:8px;border:1px solid var(--line-2)}
@@ -323,10 +328,10 @@ header.nav.scrolled .nav-shell{background:var(--nav-bg);backdrop-filter:blur(18p
 /* ============ TEAM ============ */
 .team-grid{display:grid;grid-template-columns:repeat(2,minmax(0,300px));justify-content:center;gap:24px}
 .member{overflow:hidden}
-.member .photo{aspect-ratio:1;overflow:hidden;position:relative}
-.member .photo img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:.6s}
+.member .photo{aspect-ratio:4/5;overflow:hidden;position:relative}
+.member .photo img{width:100%;height:100%;object-fit:cover;object-position:center top;transition:.6s;filter:grayscale(1) contrast(1.08)}
 .member:hover .photo img{transform:scale(1.07)}
-.member .photo::after{content:"";position:absolute;inset:0;background:var(--card-img-scrim)}
+.member .photo::after{content:"";position:absolute;inset:0;background:var(--card-img-scrim),radial-gradient(120% 90% at 50% 38%,transparent 52%,rgba(4,8,6,.55) 100%)}
 .member .info{padding:20px 22px;text-align:center}
 .member .info h4{font-size:1.14rem}
 .member .info span{color:var(--brand);font-size:.85rem;font-weight:500}
@@ -657,7 +662,7 @@ footer{background:var(--panel);color:var(--txt-2);padding:70px 0 30px;border-top
 <section class="stats-band" id="about">
   <div class="wrap">
     <div class="stats-grid">
-      <div class="stat"><div class="num amber" data-count="300" data-suf="%"><span>0</span><span class="suf">%</span></div><div class="lbl">Avg. Selling Uplift</div></div>
+      <div class="stat"><div class="num" data-count="300" data-suf="%"><span>0</span><span class="suf">%</span></div><div class="lbl">Avg. Selling Uplift</div></div>
       <div class="stat"><div class="num">24/7</div><div class="lbl">Dedicated Reps</div></div>
       <div class="stat"><div class="num" data-count="50" data-suf=""><span>0</span></div><div class="lbl">States Covered</div></div>
     </div>
@@ -669,7 +674,7 @@ footer{background:var(--panel);color:var(--txt-2);padding:70px 0 30px;border-top
   <div class="wrap">
     <div class="head-center">
       <span class="eyebrow">How It Works</span>
-      <h2 class="h-sec reveal">Sell under our lanes. <span class="grad-txt">Keep the upside.</span></h2>
+      <h2 class="h-sec reveal">Sell under our lanes. <span class="grad-txt ln">Keep the upside.</span></h2>
       <p class="sub-sec reveal d1">More views, more bids, more money for you.</p>
     </div>
     <div class="proc-grid">
@@ -735,7 +740,7 @@ footer{background:var(--panel);color:var(--txt-2);padding:70px 0 30px;border-top
       </div>
       <div>
         <span class="feat-num">01 — Training &amp; Consulting</span>
-        <h3>We’ve helped produce many 6-figure monthly sellers</h3>
+        <h3>We’ve helped produce many <span class="hl-fig"><b class="grad-txt">6-figure</b> monthly sellers</span></h3>
         <p class="desc">If you’re new, don’t feel intimidated. We’ve helped turn complete beginners into 7-figure entrepreneurs.</p>
         <ul class="check-list">
           <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M5 12l5 5L20 7"/></svg></span>Consulting by leading industry players</li>
@@ -829,7 +834,7 @@ footer{background:var(--panel);color:var(--txt-2);padding:70px 0 30px;border-top
   <div class="wrap">
     <div class="head-center">
       <span class="eyebrow">Our Team</span>
-      <h2 class="h-sec reveal">The people behind your sales</h2>
+      <h2 class="h-sec reveal">The people behind <span class="ln">your sales</span></h2>
       <p class="sub-sec reveal d1">A dedicated team working to get your vehicles in front of the right buyers.</p>
     </div>
     <div class="team-grid">
@@ -859,7 +864,7 @@ footer{background:var(--panel);color:var(--txt-2);padding:70px 0 30px;border-top
     </div>
     <div class="perks">
       <div class="perk glass reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h4>Competitive Pay</h4><p>Rewarding compensation &amp; bonuses</p></div>
-      <div class="perk glass reveal d1"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M21 7v5h-5"/></svg></div><h4>Real Growth</h4><p>Advance as the company scales</p></div>
+      <div class="perk glass reveal d1"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><h4>Real Growth</h4><p>Advance as the company scales</p></div>
       <div class="perk glass reveal d2"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div><h4>Remote-Friendly</h4><p>Flexible roles across the U.S.</p></div>
       <div class="perk glass reveal d3"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13A4 4 0 0 1 16 11"/></svg></div><h4>Great Team</h4><p>Supportive, driven people</p></div>
     </div>
