@@ -23,6 +23,9 @@ Edit `config.php`:
 ### Test after upload
 Submit the Contact form on the live site. The email should arrive within a minute. If it does not: cPanel → Email Deliverability must show SPF and DKIM as valid for the domain; or switch `transport` to `'smtp'` (below).
 
+### Local overrides (optional)
+If a file named `config.local.php` exists next to `config.php`, its values override `config.php`. Useful for testing with different settings without touching the main file. It is blocked from the web by `.htaccess` like `config.php`.
+
 ### SMTP transport (local testing, or fallback)
 In the Gmail account: Google Account → Security → 2-Step Verification → App passwords → create one named "Website form". Put it in `config.php` → `smtp.pass` and set `transport` to `'smtp'`. Mail is then sent through Gmail itself from `remarketingf@gmail.com`, which Gmail never marks as spam. This also works on a local PHP server (`php -S localhost:8080` in the site folder).
 

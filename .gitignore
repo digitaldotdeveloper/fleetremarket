@@ -7,3 +7,4 @@ concept-2/*.bak.html
 
 # local build artifacts
 *.zip
+concept-2/config.local.php

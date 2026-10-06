@@ -9,6 +9,7 @@ header('Content-Type: application/json; charset=utf-8');
 header('X-Content-Type-Options: nosniff');
 
 $cfg = require __DIR__ . '/config.php';
+if (is_file(__DIR__ . '/config.local.php')) $cfg = array_replace_recursive($cfg, require __DIR__ . '/config.local.php');   // optional local overrides
 
 function out(bool $ok, string $msg, int $code = 200): never {
     http_response_code($code);
