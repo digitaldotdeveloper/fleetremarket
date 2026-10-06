@@ -1,0 +1,5 @@
+# keep the settings file private
+<Files "config.php">
+  Require all denied
+</Files>
+Options -Indexes

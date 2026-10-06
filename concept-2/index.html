@@ -550,7 +550,9 @@ footer{background:var(--panel);color:var(--txt-2);padding:70px 0 30px;border-top
 <script>
 // ===== SITE SETTINGS (edit these two lines when handing over) =====
 window.SITE={
-  formEmail:'remarketingf@gmail.com',   // where form submissions are delivered (FormSubmit.co)
+  // form handler: send.php on the live PHP host (delivery address is in config.php).
+  // The GitHub preview has no PHP, so there it falls back to FormSubmit.co automatically.
+  formEndpoint: location.hostname.endsWith('github.io') ? 'https://formsubmit.co/ajax/remarketingf@gmail.com' : 'send.php',
   gaId:''                               // Google Analytics 4 measurement ID, e.g. 'G-XXXXXXXXXX' (leave '' to disable)
 };
 if(SITE.gaId){var g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id='+SITE.gaId;document.head.appendChild(g);
@@ -1020,13 +1022,13 @@ const burger=document.getElementById('burger'),mm=document.getElementById('mobil
 burger.onclick=()=>{burger.classList.toggle('open');mm.classList.toggle('open');document.body.style.overflow=mm.classList.contains('open')?'hidden':''};
 mm.querySelectorAll('a').forEach(a=>a.onclick=()=>{burger.classList.remove('open');mm.classList.remove('open');document.body.style.overflow=''});
 
-// form delivery via FormSubmit.co (AJAX) -> SITE.formEmail
+// form delivery -> SITE.formEndpoint (send.php or FormSubmit); both return JSON {success}
 async function sendForm(form,subject,noteEl,okMsg){
   const btn=form.querySelector('button[type=submit]');const d=Object.fromEntries(new FormData(form).entries());
   if(d._honey){return}
   const payload={...d,_subject:subject,_template:'table',_replyto:d.email||'',_captcha:'false',page:location.href};
   btn.disabled=true;noteEl.classList.remove('ok','err');noteEl.textContent='Sending…';
-  try{const r=await fetch('https://formsubmit.co/ajax/'+SITE.formEmail,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
+  try{const r=await fetch(SITE.formEndpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
     const j=await r.json().catch(()=>({}));
     if(r.ok&&(j.success==='true'||j.success===true)){noteEl.textContent=okMsg;noteEl.classList.add('ok');form.reset();if(window.gtag)gtag('event','generate_lead',{form:form.id})}
     else throw new Error(j.message||'send failed')}
