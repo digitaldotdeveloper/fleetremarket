@@ -3,11 +3,12 @@
 Static site: no server, database or build step. Upload the folder to any host (GitHub Pages, Netlify, cPanel…). Note: the forms need PHP, so they work on the hosting (or a local PHP server), not when `index.html` is opened as a plain file.
 
 ## Upload to cPanel
-1. cPanel → File Manager → `public_html` → **Upload** the zip, then **Extract** it there. `index.html` must end up directly inside `public_html`.
-2. Point the domain `fleetremarket.com` at this hosting (your host does this when the domain and hosting are in the same account) and enable the free SSL certificate (cPanel → SSL/TLS Status → Run AutoSSL).
-3. Create the sender mailbox `noreply@fleetremarket.com` (cPanel → Email Accounts). Any password; it is never read.
-4. Test the Contact form on the live site. The email arrives at the Gmail inbox.
-5. Google Analytics → Admin → Data streams → Website → edit the URL to `https://fleetremarket.com`. Submit the sitemap at https://search.google.com/search-console (same Gmail): `https://fleetremarket.com/sitemap.xml`.
+1. The domain currently serves the old website. In cPanel → File Manager → `public_html`, select everything and **Compress** it to e.g. `old-site-backup.zip`, move that zip out of `public_html` (or download it), then delete the old files. If the old site was WordPress, also drop its database later from cPanel → MySQL Databases (optional).
+2. Still in `public_html`: **Upload** the new zip, then **Extract** it. `index.html` must end up directly inside `public_html`.
+3. Point the domain `fleetremarket.com` at this hosting (your host does this when the domain and hosting are in the same account) and enable the free SSL certificate (cPanel → SSL/TLS Status → Run AutoSSL).
+4. Create the sender mailbox `noreply@fleetremarket.com` (cPanel → Email Accounts). Any password; it is never read.
+5. Test the Contact form on the live site. The email arrives at the Gmail inbox.
+6. Google Analytics → Admin → Data streams → Website → edit the URL to `https://fleetremarket.com`. Submit the sitemap at https://search.google.com/search-console (same Gmail): `https://fleetremarket.com/sitemap.xml`.
 
 ## Files
 - `sitemap.xml`, `robots.txt`, `assets/og.jpg` — search engines and the preview image shown when the link is shared on WhatsApp / Facebook / LinkedIn.
