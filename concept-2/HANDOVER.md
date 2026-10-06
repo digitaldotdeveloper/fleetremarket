@@ -2,7 +2,15 @@
 
 Static site: no server, database or build step. Upload the folder to any host (GitHub Pages, Netlify, cPanel…). Note: the forms need PHP, so they work on the hosting (or a local PHP server), not when `index.html` is opened as a plain file.
 
+## Upload to cPanel
+1. cPanel → File Manager → `public_html` → **Upload** the zip, then **Extract** it there. `index.html` must end up directly inside `public_html`.
+2. Point the domain `fleetremarket.com` at this hosting (your host does this when the domain and hosting are in the same account) and enable the free SSL certificate (cPanel → SSL/TLS Status → Run AutoSSL).
+3. Create the sender mailbox `noreply@fleetremarket.com` (cPanel → Email Accounts). Any password; it is never read.
+4. Test the Contact form on the live site. The email arrives at the Gmail inbox.
+5. Google Analytics → Admin → Data streams → Website → edit the URL to `https://fleetremarket.com`. Submit the sitemap at https://search.google.com/search-console (same Gmail): `https://fleetremarket.com/sitemap.xml`.
+
 ## Files
+- `sitemap.xml`, `robots.txt`, `assets/og.jpg` — search engines and the preview image shown when the link is shared on WhatsApp / Facebook / LinkedIn.
 - `index.html` + `assets/` — the website.
 - `send.php` — receives the two forms and emails them. `config.php` — its settings. `.htaccess` — keeps `config.php` private.
 - The host must support PHP 8 (any cPanel plan does).
@@ -18,7 +26,7 @@ Edit `config.php`:
 
 - Both forms (hero "Get Started" and the Contact form) post to `send.php`. The email contains a table of the fields; Reply-To is the visitor, so replying from Gmail goes straight to the dealer.
 - Spam protection: hidden honeypot field, header-injection guard, max 10 submissions per IP per hour, no visible captcha.
-- `from_email` must be on the site's own domain so the host's SPF/DKIM signatures match. Create that mailbox in cPanel → Email Accounts (it never needs to be read; it only has to exist so the mail server accepts the sender).
+- `from_email` is already set to `noreply@fleetremarket.com`; it must be on the site's own domain so the host's SPF/DKIM signatures match. Create that mailbox in cPanel → Email Accounts (it never needs to be read; it only has to exist so the mail server accepts the sender).
 
 ### Test after upload
 Submit the Contact form on the live site. The email should arrive within a minute. If it does not: cPanel → Email Deliverability must show SPF and DKIM as valid for the domain; or switch `transport` to `'smtp'` (below).
