@@ -1,6 +1,6 @@
 # Fleet Remarketing website — handover notes
 
-Static site: open `index.html` in any browser. No server, database or build step. Host it anywhere (GitHub Pages, Netlify, cPanel…).
+Static site: no server, database or build step. Upload the folder to any host (GitHub Pages, Netlify, cPanel…). Note: the forms only send when the site is served from a real URL (http/https), not when `index.html` is opened as a local file.
 
 ## Settings (one place)
 Open `index.html` and find `SITE SETTINGS` near the top:
