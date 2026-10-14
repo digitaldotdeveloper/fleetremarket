@@ -335,11 +335,14 @@ header.nav.scrolled .nav-shell{background:var(--nav-bg);backdrop-filter:blur(18p
 /* ============ AUCTIONS ============ */
 .auc-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;max-width:1100px;margin-inline:auto}
 .auc-grid .auc-card{flex:0 1 calc((100% - 36px)/3);flex-direction:column;align-items:stretch;gap:18px}
-.auc-logo{height:92px;border-radius:13px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;padding:14px 20px}
+.auc-logo{height:72px;background:transparent;display:flex;align-items:center;justify-content:flex-start}
 .auc-logo img{max-height:62px;max-width:100%;width:auto;object-fit:contain}
 .auc-logo .wm{font-family:'Bricolage Grotesque';font-size:1.75rem;font-weight:800;letter-spacing:-.02em;line-height:1}
 .wm-man{color:#1b3a6b}
+:root[data-theme="dark"] .wm-man{color:#f1ece8}
+:root[data-theme="dark"] .auc-logo .on-dark-white{filter:brightness(0) invert(1)}
 .wm-adesa{color:#c8102e;letter-spacing:.06em}
+:root[data-theme="dark"] .wm-adesa{color:#f0485c}
 .auc-card{display:flex;gap:16px;align-items:flex-start;padding:24px}
 .auc-mono{flex-shrink:0;width:54px;height:54px;border-radius:13px;display:grid;place-items:center;font-family:'Bricolage Grotesque';font-weight:700;
   font-size:.88rem;background:var(--brand-soft);border:1px solid var(--line-2);color:var(--brand);transition:.35s}
@@ -610,7 +613,7 @@ footer{background:var(--panel);color:var(--txt-2);padding:70px 0 30px;border-top
   /* auctions: compact rows — logo tile left, text right */
   .auc-grid{gap:12px}
   .auc-grid .auc-card{flex-basis:100%;flex-direction:row;align-items:center;gap:14px;padding:14px}
-  .auc-logo{flex:0 0 92px;height:62px;padding:8px 10px}
+  .auc-logo{flex:0 0 84px;height:52px;justify-content:center}
   .auc-logo img{max-height:40px}
   .auc-logo .wm{font-size:1rem}
   .auc-card h4{font-size:1rem;margin-bottom:3px}
@@ -971,7 +974,7 @@ if(SITE.gaId){var g=document.createElement('script');g.async=true;g.src='https:/
     <div class="auc-grid">
       <div class="auc-card glass reveal"><div class="auc-logo"><img loading="lazy" decoding="async" src="assets/auc-acv.webp" alt="ACV Auctions"></div><div><h4>ACV Auctions</h4><p>Our largest digital marketplace — we're among the top sellers on ACV, reaching thousands of dealers every day.</p></div></div>
       <div class="auc-card glass reveal d1"><div class="auc-logo"><b class="wm wm-man">Manheim</b></div><div><h4>Manheim</h4><p>The nation's largest wholesale auto auction, connecting your inventory to a massive nationwide buyer network.</p></div></div>
-      <div class="auc-card glass reveal d2"><div class="auc-logo"><img loading="lazy" decoding="async" src="assets/auc-ove.webp" alt="OVE"></div><div><h4>OVE</h4><p>Manheim's online vehicle exchange for 24/7 wholesale selling, anytime and anywhere.</p></div></div>
+      <div class="auc-card glass reveal d2"><div class="auc-logo"><img loading="lazy" decoding="async" class="on-dark-white" src="assets/auc-ove.webp" alt="OVE"></div><div><h4>OVE</h4><p>Manheim's online vehicle exchange for 24/7 wholesale selling, anytime and anywhere.</p></div></div>
       <div class="auc-card glass reveal"><div class="auc-logo"><b class="wm wm-adesa">ADESA</b></div><div><h4>ADESA</h4><p>Premium physical and digital lanes with coast-to-coast reach and consistently strong buyer traffic.</p></div></div>
       <div class="auc-card glass reveal d1"><div class="auc-logo"><img loading="lazy" decoding="async" src="assets/auc-americas.webp" alt="America's Auto Auction"></div><div><h4>America's Auto Auction</h4><p>Live lanes across the country that put your vehicles in front of active, motivated dealer buyers.</p></div></div>
     </div>
