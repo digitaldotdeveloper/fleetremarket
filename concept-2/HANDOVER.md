@@ -12,7 +12,8 @@ Static site: no server, database or build step. Upload the folder to any host (G
 
 ## Files
 - `sitemap.xml`, `robots.txt`, `assets/og.jpg` — search engines and the preview image shown when the link is shared on WhatsApp / Facebook / LinkedIn.
-- `index.html` + `assets/` — the website.
+- `index.html` + `assets/` — the website. `careers.html` — the Careers page (linked from the footer, opens in a new tab).
+- Dealer app store links: paste them into `appStoreUrl` / `playStoreUrl` in the `SITE SETTINGS` block at the top of `index.html`. Until then the badges are inactive.
 - `send.php` — receives the two forms and emails them. `config.php` — its settings. `.htaccess` — keeps `config.php` private.
 - The host must support PHP 8 (any cPanel plan does).
 

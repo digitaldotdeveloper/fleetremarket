@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fleet Remarketing — Sell Your Vehicles Nationwide</title>
-<meta name="description" content="Fleet Remarketing gives independent dealers, franchise stores and wholesalers the major-account advantage: sell under our lanes on ACV, Manheim, OVE and ADESA with dedicated reps, inspections and 1-on-1 training. Minneapolis and Chicago.">
+<meta name="description" content="Fleet Remarketing gives independent dealers, franchise stores and wholesalers the major-account advantage: sell under our lanes on ACV, Manheim, OVE, ADESA and America's Auto Auction with dedicated reps, inspections and 1-on-1 training. Houston and Chicago.">
 <meta name="theme-color" content="#080b09">
 <link rel="canonical" href="https://fleetremarket.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Fleet Remarketing">
 <meta property="og:url" content="https://fleetremarket.com/">
 <meta property="og:title" content="Fleet Remarketing — The major-account advantage, without being a major account">
-<meta property="og:description" content="Fleet Remarketing gives independent dealers, franchise stores and wholesalers the major-account advantage: sell under our lanes on ACV, Manheim, OVE and ADESA with dedicated reps, inspections and 1-on-1 training. Minneapolis and Chicago.">
+<meta property="og:description" content="Fleet Remarketing gives independent dealers, franchise stores and wholesalers the major-account advantage: sell under our lanes on ACV, Manheim, OVE, ADESA and America's Auto Auction with dedicated reps, inspections and 1-on-1 training. Houston and Chicago.">
 <meta property="og:image" content="https://fleetremarket.com/assets/og.jpg">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Fleet Remarketing — The major-account advantage, without being a major account">
-<meta name="twitter:description" content="Fleet Remarketing gives independent dealers, franchise stores and wholesalers the major-account advantage: sell under our lanes on ACV, Manheim, OVE and ADESA with dedicated reps, inspections and 1-on-1 training. Minneapolis and Chicago.">
+<meta name="twitter:description" content="Fleet Remarketing gives independent dealers, franchise stores and wholesalers the major-account advantage: sell under our lanes on ACV, Manheim, OVE, ADESA and America's Auto Auction with dedicated reps, inspections and 1-on-1 training. Houston and Chicago.">
 <meta name="twitter:image" content="https://fleetremarket.com/assets/og.jpg">
 <link rel="icon" type="image/png" href="assets/favicon.png">
 <link rel="preload" as="image" href="assets/hero-1.webp" fetchpriority="high">
@@ -236,6 +236,25 @@ header.nav.scrolled .nav-shell{background:var(--nav-bg);backdrop-filter:blur(18p
 .hf-secure{display:flex;align-items:center;justify-content:center;gap:7px;font-size:.8rem;font-weight:500;color:var(--txt);margin-top:12px}
 .hf-secure svg{width:14px;height:14px;color:var(--brand)}
 .hf-secure.ok{color:var(--brand)}
+.hf-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.hf-row3{grid-template-columns:1.3fr .8fr .8fr}
+.hf-row .hf-field{min-width:0}
+.hf-tel{position:relative}
+.hf-tel span{position:absolute;left:13px;top:50%;transform:translateY(-50%);font-size:.9rem;font-weight:600;color:var(--ink);pointer-events:none}
+.hero-form .hf-tel input{padding-left:38px}
+.hero-form select:valid{color:var(--ink)}
+.hf-auc{border:0;margin:4px 0 6px;display:flex;flex-wrap:wrap;gap:7px}
+.hf-auc legend{font-size:.8rem;font-weight:600;color:var(--txt-2);margin-bottom:7px;padding:0}
+.hf-auc label{cursor:pointer}
+.hf-auc input{position:absolute;opacity:0;width:1px;height:1px;pointer-events:none}
+.hf-auc span{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border-radius:100px;border:1px solid var(--line-2);
+  background:var(--panel);font-size:.8rem;font-weight:600;color:var(--txt);transition:.2s;user-select:none}
+.hf-auc span::before{content:"";width:12px;height:12px;border-radius:4px;border:1.5px solid var(--line-2);transition:.2s}
+.hf-auc label:hover span{border-color:var(--brand)}
+.hf-auc input:checked+span{border-color:var(--brand);background:var(--brand-soft);color:var(--ink)}
+.hf-auc input:checked+span::before{background:var(--brand);border-color:var(--brand);
+  box-shadow:inset 0 0 0 2px var(--surface-solid)}
+.hf-auc input:focus-visible+span{box-shadow:0 0 0 4px var(--brand-soft)}
 
 /* ============ STATS BAND ============ */
 .stats-band{background:var(--panel);border-top:1px solid var(--line);border-bottom:1px solid var(--line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
@@ -314,7 +333,13 @@ header.nav.scrolled .nav-shell{background:var(--nav-bg);backdrop-filter:blur(18p
 .check-list .ck svg{width:13px;height:13px}
 
 /* ============ AUCTIONS ============ */
-.auc-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;max-width:980px;margin-inline:auto}
+.auc-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:18px;max-width:1100px;margin-inline:auto}
+.auc-grid .auc-card{flex:0 1 calc((100% - 36px)/3);flex-direction:column;align-items:stretch;gap:18px}
+.auc-logo{height:92px;border-radius:13px;background:#fff;border:1px solid var(--line);display:grid;place-items:center;padding:14px 20px}
+.auc-logo img{max-height:62px;max-width:100%;width:auto;object-fit:contain}
+.auc-logo .wm{font-family:'Bricolage Grotesque';font-size:1.75rem;font-weight:800;letter-spacing:-.02em;line-height:1}
+.wm-man{color:#1b3a6b}
+.wm-adesa{color:#c8102e;letter-spacing:.06em}
 .auc-card{display:flex;gap:16px;align-items:flex-start;padding:24px}
 .auc-mono{flex-shrink:0;width:54px;height:54px;border-radius:13px;display:grid;place-items:center;font-family:'Bricolage Grotesque';font-weight:700;
   font-size:.88rem;background:var(--brand-soft);border:1px solid var(--line-2);color:var(--brand);transition:.35s}
@@ -337,6 +362,35 @@ header.nav.scrolled .nav-shell{background:var(--nav-bg);backdrop-filter:blur(18p
 .ben p{color:var(--txt-2);font-size:.93rem}
 .ben .big-num{position:absolute;right:20px;top:8px;font-family:'Bricolage Grotesque';font-weight:800;font-size:5rem;line-height:1;
   background:var(--grad);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;opacity:.18}
+
+/* why choose us — 8 points */
+#why .head-center{max-width:760px}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.why{padding:28px 24px;display:flex;flex-direction:column;gap:6px}
+.why .ic{width:52px;height:52px;border-radius:14px;background:var(--brand-soft);color:var(--brand);display:grid;place-items:center;margin-bottom:10px;border:1px solid var(--line-2)}
+.why .ic svg{width:24px;height:24px}
+.why h4{font-size:1.08rem}
+.why p{color:var(--txt-2);font-size:.9rem}
+
+/* about */
+.about-lead{font-size:1.14rem;color:var(--ink);font-weight:500;margin-bottom:18px}
+.about-pull{font-family:'Bricolage Grotesque';font-size:1.18rem;font-weight:700;color:var(--brand);margin-bottom:14px;padding-left:14px;border-left:3px solid var(--brand)}
+.about-row p.desc{margin-bottom:14px}
+.about-row .h-sec{margin-top:16px}
+
+/* how it works intro */
+.proc-intro{max-width:880px;margin:-22px auto 44px;padding:26px 30px;border:1px solid var(--glass-border);border-radius:var(--r);background:var(--surface);text-align:center}
+.proc-intro p{color:var(--txt);font-size:1.02rem}
+.proc-intro .goal{margin-top:16px;padding-top:16px;border-top:1px solid var(--line);font-family:'Bricolage Grotesque';font-size:1.12rem;font-weight:600;color:var(--ink);line-height:1.4}
+.proc-intro .goal span{display:block;font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--brand);margin-bottom:6px}
+
+/* our buyers */
+.buyers-sec .head-center{margin-bottom:36px}
+.buyer-wall{display:flex;flex-wrap:wrap;justify-content:center;gap:14px;max-width:980px;margin:0 auto}
+.buyer-wall span{font-family:'Bricolage Grotesque';font-size:1.35rem;font-weight:800;letter-spacing:-.02em;color:var(--ink);
+  padding:18px 28px;border-radius:var(--r-sm);border:1px solid var(--glass-border);background:var(--surface);opacity:.85;transition:.3s}
+.buyer-wall span:hover{opacity:1;border-color:var(--brand);color:var(--brand)}
+.buyer-note{text-align:center;margin-top:26px;color:var(--txt-2)}
 
 /* ============ TEAM ============ */
 .team-grid{display:grid;grid-template-columns:repeat(2,minmax(0,300px));justify-content:center;gap:24px}
@@ -401,6 +455,7 @@ header.nav.scrolled .nav-shell{background:var(--nav-bg);backdrop-filter:blur(18p
 .info-row b{font-family:'Bricolage Grotesque';font-size:.96rem;display:block;color:var(--ink)}
 .info-row a,.info-row span{color:var(--txt-2);font-size:.92rem}
 .info-row a:hover{color:var(--brand)}
+.info-row a,.foot-col a{overflow-wrap:anywhere}
 .form{background:var(--surface);border:1px solid var(--glass-border);border-radius:var(--r);padding:36px;box-shadow:var(--shadow);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px)}
 .form h3{font-size:1.5rem;margin-bottom:6px}
 .form>p{color:var(--txt-2);margin-bottom:24px;font-size:.95rem}
@@ -465,7 +520,10 @@ footer{background:var(--panel);color:var(--txt-2);padding:70px 0 30px;border-top
   .feature.rev .feat-media{order:0}
   .app-grid,.contact-grid{grid-template-columns:1fr}
   .app-media{min-height:260px}
-  .auc-grid,.perks{grid-template-columns:repeat(2,1fr)}
+  .perks{grid-template-columns:repeat(2,1fr)}
+  .auc-grid .auc-card{flex-basis:calc((100% - 18px)/2)}
+  .why-grid{grid-template-columns:repeat(2,1fr)}
+  .about-row .feat-media{order:2}
   .ben-grid{grid-template-columns:repeat(2,1fr)}
   .ben,.ben.big,.ben.wide{grid-column:span 1}
   .foot-grid{grid-template-columns:1fr 1fr;gap:32px}
@@ -520,7 +578,12 @@ footer{background:var(--panel);color:var(--txt-2);padding:70px 0 30px;border-top
   .hf-head{padding:14px 14px 0}
 
   /* --- grids collapse to one column --- */
-  .stats-grid,.team-grid,.auc-grid,.offices,.two-col,.perks,.ben-grid{grid-template-columns:1fr}
+  .stats-grid,.team-grid,.offices,.two-col,.perks,.ben-grid,.why-grid{grid-template-columns:1fr}
+  .auc-grid .auc-card{flex-basis:100%}
+  .hf-row{grid-template-columns:1fr}
+  .hf-row3{grid-template-columns:1.4fr 1fr 1fr}
+  .buyer-wall span{font-size:1.15rem;padding:14px 18px}
+  .proc-intro{padding:22px 20px}
   .team-grid{max-width:320px;margin:0 auto}
   .stat{border-right:none;border-bottom:1px solid var(--line);padding:26px 24px;text-align:center;align-items:center}
   .stat:last-child{border-bottom:none}
@@ -564,7 +627,9 @@ footer{background:var(--panel);color:var(--txt-2);padding:70px 0 30px;border-top
 // ===== SITE SETTINGS (edit these two lines when handing over) =====
 window.SITE={
   formEndpoint:'send.php',              // form handler (delivery address is in config.php)
-  gaId:'G-J0QYY2QFH0'                   // Google Analytics 4 measurement ID (leave '' to disable)
+  gaId:'G-J0QYY2QFH0',                  // Google Analytics 4 measurement ID (leave '' to disable)
+  appStoreUrl:'',                       // TODO: paste the App Store link for the dealer app
+  playStoreUrl:''                       // TODO: paste the Google Play link for the dealer app
 };
 if(SITE.gaId){var g=document.createElement('script');g.async=true;g.src='https://www.googletagmanager.com/gtag/js?id='+SITE.gaId;document.head.appendChild(g);
   window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config',SITE.gaId,{anonymize_ip:true});}
@@ -581,10 +646,10 @@ if(SITE.gaId){var g=document.createElement('script');g.async=true;g.src='https:/
     <div class="wrap topbar-inner">
       <div class="tb-left">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-11a7 7 0 1 0-14 0c0 4.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-        Minneapolis · Chicago — selling nationwide on ACV, Manheim, OVE &amp; ADESA
+        Houston · Chicago — selling nationwide on ACV, Manheim, OVE, ADESA &amp; America's
       </div>
       <div class="tb-right">
-        <a href="tel:8553904700"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span class="lbl">Support</span> 855-390-4700</a>
+        <a href="tel:7135640255"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg><span class="lbl">Support</span> 713-564-0255</a>
         <span class="tb-div tb-hide"></span>
         <span class="tb-hours tb-hide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18M8 2v4M16 2v4"/></svg>Mon–Fri, 9AM–5PM</span>
       </div>
@@ -596,11 +661,10 @@ if(SITE.gaId){var g=document.createElement('script');g.async=true;g.src='https:/
       <nav class="nav-links">
         <a href="#home">Home</a>
         <a href="#about">About Us</a>
+        <a href="#process">How It Works</a>
+        <a href="#remarketing">Remarketing With Us</a>
         <a href="#auctions">Auctions We Use</a>
-        <a href="#remarketing">Remarketing</a>
-        <a href="#why">Why Choose Us</a>
-        <a href="#careers">Careers</a>
-        <a href="#contact">Contact Us</a>
+        <a href="#why">Why Us</a>
       </nav>
       <div class="nav-right">
         <button class="theme-toggle" id="themeToggle" aria-label="Toggle light / dark theme" title="Toggle theme">
@@ -617,10 +681,10 @@ if(SITE.gaId){var g=document.createElement('script');g.async=true;g.src='https:/
 <div class="mobile-menu" id="mobileMenu">
   <a href="#home">Home</a>
   <a href="#about">About Us</a>
+  <a href="#process">How It Works</a>
+  <a href="#remarketing">Remarketing With Us</a>
   <a href="#auctions">Auctions We Use</a>
-  <a href="#remarketing">Remarketing</a>
-  <a href="#why">Why Choose Us</a>
-  <a href="#careers">Careers</a>
+  <a href="#why">Why Us</a>
   <a href="#contact">Contact Us</a>
 </div>
 
@@ -666,10 +730,30 @@ if(SITE.gaId){var g=document.createElement('script');g.async=true;g.src='https:/
           <div class="hf-head"><b>Partner Up</b><span>Apply to sell under our lanes.</span></div>
           <div class="hf-body">
             <form id="heroForm">
-              <div class="hf-field"><input type="text" name="name" placeholder="Full Name" required aria-label="Full Name"></div>
-              <div class="hf-field"><input type="text" name="dealer" placeholder="Dealer Name" aria-label="Dealer Name"></div>
-              <div class="hf-field"><input type="email" name="email" placeholder="Email Address" required aria-label="Email Address"></div>
-              <div class="hf-field"><input type="tel" name="phone" placeholder="Phone Number" required aria-label="Phone Number"><input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off"></div>
+              <div class="hf-field"><input type="text" name="name" placeholder="Full Name" required aria-label="Full Name" autocomplete="name"></div>
+              <div class="hf-row">
+                <div class="hf-field hf-tel"><span>+1</span><input type="tel" name="phone" placeholder="Phone Number" required aria-label="Phone Number" autocomplete="tel-national"></div>
+                <div class="hf-field"><input type="email" name="email" placeholder="Email" required aria-label="Email" autocomplete="email"></div>
+              </div>
+              <div class="hf-row">
+                <div class="hf-field"><select name="dealer_type" required aria-label="Dealer Type"><option value="" disabled selected>Dealer Type</option><option>Used</option><option>New</option><option>Commercial</option></select></div>
+                <div class="hf-field"><input type="text" name="auction_access" placeholder="5 Million #" title="Your AuctionACCESS 5 Million number" inputmode="numeric" aria-label="5 Million Number (AuctionACCESS)"></div>
+              </div>
+              <div class="hf-field"><input type="text" name="address" placeholder="Dealership Address" aria-label="Dealership Address" autocomplete="street-address"></div>
+              <div class="hf-row hf-row3">
+                <div class="hf-field"><input type="text" name="city" placeholder="City" aria-label="City" autocomplete="address-level2"></div>
+                <div class="hf-field"><input type="text" name="state" placeholder="State" maxlength="20" aria-label="State" autocomplete="address-level1"></div>
+                <div class="hf-field"><input type="text" name="zip" placeholder="Zip" maxlength="10" inputmode="numeric" aria-label="Zip code" autocomplete="postal-code"></div>
+              </div>
+              <fieldset class="hf-auc">
+                <legend>Interested Auctions</legend>
+                <label><input type="checkbox" name="auctions" value="ACV"><span>ACV</span></label>
+                <label><input type="checkbox" name="auctions" value="Manheim"><span>Manheim</span></label>
+                <label><input type="checkbox" name="auctions" value="OVE"><span>OVE</span></label>
+                <label><input type="checkbox" name="auctions" value="ADESA"><span>ADESA</span></label>
+                <label><input type="checkbox" name="auctions" value="America's Auto Auction"><span>America's</span></label>
+              </fieldset>
+              <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
               <button type="submit" class="btn btn-primary">Get Started
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
               <p class="hf-secure" id="heroFormNote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Your info is secure and confidential.</p>
@@ -683,7 +767,7 @@ if(SITE.gaId){var g=document.createElement('script');g.async=true;g.src='https:/
 </section>
 
 <!-- STATS BAND -->
-<section class="stats-band" id="about">
+<section class="stats-band">
   <div class="wrap">
     <div class="stats-grid">
       <div class="stat"><div class="num" data-count="300" data-suf="%"><span>0</span><span class="suf">%</span></div><div class="lbl">Avg. Selling Uplift</div></div>
@@ -693,13 +777,39 @@ if(SITE.gaId){var g=document.createElement('script');g.async=true;g.src='https:/
   </div>
 </section>
 
+<!-- ABOUT US -->
+<section class="pad" id="about">
+  <div class="wrap">
+    <div class="feature about-row">
+      <div class="feat-media reveal">
+        <div class="glowdot"></div>
+        <div class="frame"></div>
+        <img loading="lazy" decoding="async" class="shot" src="assets/inspection-detail.webp" alt="Vehicle being professionally inspected before auction">
+        <div class="float"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><div><b>Market-Driven</b><span>Pricing &amp; buyer trends, tracked daily</span></div></div>
+      </div>
+      <div class="reveal d1">
+        <span class="eyebrow">About Us</span>
+        <h2 class="h-sec">Remarketing Made Simple. <span class="grad-txt ln">Results Made Better.</span></h2>
+        <p class="about-lead">We connect sellers with greater market exposure across multiple channels, including digital and live auction platforms, while professionally inspecting every vehicle before it reaches the market.</p>
+        <p class="about-pull">But our service goes beyond getting vehicles to auction.</p>
+        <p class="desc">The automotive market moves fast, and we stay ahead of those changes. Our team closely follows market trends, pricing shifts, and buyer activity to help our partners make informed decisions, adjust quickly, and maximize the return on every vehicle.</p>
+        <p class="desc">Over the years, buyers and sellers have come to recognize the Fleet Remarketing name as one they can trust.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- HOW IT WORKS -->
-<section class="pad" id="process">
+<section class="pad panel-sec" id="process">
   <div class="wrap">
     <div class="head-center">
       <span class="eyebrow">How It Works</span>
       <h2 class="h-sec reveal">Sell under our lanes. <span class="grad-txt ln">Keep the upside.</span></h2>
       <p class="sub-sec reveal d1">More views, more bids, more money for you.</p>
+    </div>
+    <div class="proc-intro reveal">
+      <p>Fleet Remarketing manages the entire remarketing process from start to finish — including vehicle inspections, market evaluation, auction strategy, reconditioning guidance, lane positioning, and exposure across digital and traditional auction platforms.</p>
+      <div class="goal"><span>Our goal is simple</span>Put the right vehicle in front of the right buyers, at the right time, to maximize its value and improve sell-through.</div>
     </div>
     <div class="proc-grid">
       <div class="proc glass reveal">
@@ -724,7 +834,7 @@ if(SITE.gaId){var g=document.createElement('script');g.async=true;g.src='https:/
 </section>
 
 <!-- DEALER TYPES -->
-<section class="pad panel-sec" id="inventory">
+<section class="pad" id="inventory">
   <div class="wrap">
     <div class="feat-head">
       <h2 class="h-sec reveal" style="margin:0">We Serve All Dealer Types</h2>
@@ -732,18 +842,32 @@ if(SITE.gaId){var g=document.createElement('script');g.async=true;g.src='https:/
     </div>
     <div class="dtype-grid">
       <div class="fcard glass reveal">
-        <div class="ph"><img loading="lazy" decoding="async" src="assets/dealer-phone.webp" alt="Independent dealer on his lot"></div>
-        <div class="body"><span class="over">Dealer Type</span><h4>Independent</h4><p>Independent lots get the major-account treatment — a dedicated rep and our lanes behind every unit you run.</p></div>
-      </div>
-      <div class="fcard glass reveal d1">
         <div class="ph"><img loading="lazy" decoding="async" src="assets/handshake.webp" alt="Franchise dealership showroom"></div>
         <div class="body"><span class="over">Dealer Type</span><h4>Franchise</h4><p>Franchise placement for your trade-ins and aged inventory, run through our dedicated lanes.</p></div>
+      </div>
+      <div class="fcard glass reveal d1">
+        <div class="ph"><img loading="lazy" decoding="async" src="assets/dealer-phone.webp" alt="Independent dealer on his lot"></div>
+        <div class="body"><span class="over">Dealer Type</span><h4>Independent</h4><p>Independent lots get the major-account treatment — a dedicated rep and our lanes behind every unit you run.</p></div>
       </div>
       <div class="fcard glass reveal d2">
         <div class="ph"><img loading="lazy" decoding="async" src="assets/about.webp" alt="Rows of wholesale vehicles"></div>
         <div class="body"><span class="over">Dealer Type</span><h4>Wholesalers</h4><p>Move volume under our lanes with negotiated sales and a rep working every deal.</p></div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- OUR BUYERS -->
+<section class="pad panel-sec buyers-sec" id="buyers">
+  <div class="wrap">
+    <div class="head-center">
+      <span class="eyebrow">Our Buyers</span>
+      <h2 class="h-sec reveal">Bought by the groups <span class="ln">that move the market</span></h2>
+    </div>
+    <div class="buyer-wall reveal d1">
+      <span>Group 1</span><span>Lithia</span><span>DriveTime</span><span>Rydell</span><span>Luther Group</span><span>Walser Group</span>
+    </div>
+    <p class="buyer-note reveal d2">Plus a lot of other major franchises across the nation.</p>
   </div>
 </section>
 
@@ -806,12 +930,13 @@ if(SITE.gaId){var g=document.createElement('script');g.async=true;g.src='https:/
       <p class="sub-sec reveal d1">We expose your vehicles across the nation's leading live and digital auction platforms — maximizing buyers, competition, and final sale price.</p>
     </div>
     <div class="auc-grid">
-      <div class="auc-card glass reveal"><div class="auc-mono">ACV</div><div><h4>ACV Auctions</h4><p>Our largest digital marketplace — we're among the top sellers on ACV, reaching thousands of dealers every day.</p></div></div>
-      <div class="auc-card glass reveal d1"><div class="auc-mono">MAN</div><div><h4>Manheim</h4><p>The nation's largest wholesale auto auction, connecting your inventory to a massive nationwide buyer network.</p></div></div>
-      <div class="auc-card glass reveal"><div class="auc-mono">OVE</div><div><h4>OVE</h4><p>Manheim's online vehicle exchange for 24/7 wholesale selling, anytime and anywhere.</p></div></div>
-      <div class="auc-card glass reveal d1"><div class="auc-mono">ADE</div><div><h4>ADESA</h4><p>Premium physical and digital lanes with coast-to-coast reach and consistently strong buyer traffic.</p></div></div>
+      <div class="auc-card glass reveal"><div class="auc-logo"><img loading="lazy" decoding="async" src="assets/auc-acv.webp" alt="ACV Auctions"></div><div><h4>ACV Auctions</h4><p>Our largest digital marketplace — we're among the top sellers on ACV, reaching thousands of dealers every day.</p></div></div>
+      <div class="auc-card glass reveal d1"><div class="auc-logo"><b class="wm wm-man">Manheim</b></div><div><h4>Manheim</h4><p>The nation's largest wholesale auto auction, connecting your inventory to a massive nationwide buyer network.</p></div></div>
+      <div class="auc-card glass reveal d2"><div class="auc-logo"><img loading="lazy" decoding="async" src="assets/auc-ove.webp" alt="OVE"></div><div><h4>OVE</h4><p>Manheim's online vehicle exchange for 24/7 wholesale selling, anytime and anywhere.</p></div></div>
+      <div class="auc-card glass reveal"><div class="auc-logo"><b class="wm wm-adesa">ADESA</b></div><div><h4>ADESA</h4><p>Premium physical and digital lanes with coast-to-coast reach and consistently strong buyer traffic.</p></div></div>
+      <div class="auc-card glass reveal d1"><div class="auc-logo"><img loading="lazy" decoding="async" src="assets/auc-americas.webp" alt="America's Auto Auction"></div><div><h4>America's Auto Auction</h4><p>Live lanes across the country that put your vehicles in front of active, motivated dealer buyers.</p></div></div>
     </div>
-    <p class="auc-note reveal">Listing on <b>ACV, Manheim, OVE and ADESA</b> at once means more eyes, more bids, and a stronger final price on every vehicle.</p>
+    <p class="auc-note reveal">Listing on <b>ACV, Manheim, OVE, ADESA and America's</b> means more eyes, more bids, and a stronger final price on every vehicle.</p>
   </div>
 </section>
 
@@ -820,26 +945,18 @@ if(SITE.gaId){var g=document.createElement('script');g.async=true;g.src='https:/
   <div class="wrap">
     <div class="head-center">
       <span class="eyebrow">Why Choose Us</span>
-      <h2 class="h-sec reveal">Built to sell your vehicles for more</h2>
-      <p class="sub-sec reveal d1">We don't just list your cars — we engineer competition for them. The right platforms, more buyers, and a professional process behind every sale.</p>
+      <h2 class="h-sec reveal">You sell the cars. <span class="grad-txt ln">We help you sell them smarter.</span></h2>
+      <p class="sub-sec reveal d1">Fleet Remarketing gives dealers access to professional remarketing support without adding unnecessary complexity. Sale proceeds are handled directly between the selling dealer and auction venue, while our team focuses on positioning, monitoring, and supporting your inventory throughout the selling process.</p>
     </div>
-    <div class="ben-grid">
-      <div class="ben big glass reveal">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg></div>
-        <h4>Better Exposure</h4><p>Your vehicle is listed on ACV, Manheim, OVE and ADESA at once for maximum competition — the single biggest driver of a stronger final price.</p>
-      </div>
-      <div class="ben wide glass reveal d1">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M15 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="8.5" cy="7" r="4"/><path d="M19 8v6M22 11h-6"/></svg></div>
-        <h4>More Buyers</h4><p>Access thousands of verified dealers across the country through one partner.</p>
-      </div>
-      <div class="ben glass reveal d2">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg></div>
-        <h4>Trusted Inspections</h4><p>Every vehicle is professionally inspected and documented before it sells.</p>
-      </div>
-      <div class="ben accent glass reveal d3">
-        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M13 2L4 14h7l-1 8 9-12h-7l1-8z"/></svg></div>
-        <h4>Faster Sales</h4><p>We streamline the whole process to get you paid faster, with less friction.</p>
-      </div>
+    <div class="why-grid">
+      <div class="why glass reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6"/><path d="M4 20L20 4"/></svg></div><h4>No Contracts</h4><p>Flexible partnership without long-term commitments.</p></div>
+      <div class="why glass reveal d1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 12v9H4v-9"/><rect x="2" y="7" width="20" height="5" rx="1"/><path d="M12 21V7M12 7H8a2.5 2.5 0 1 1 0-5c3 0 4 5 4 5zM12 7h4a2.5 2.5 0 1 0 0-5c-3 0-4 5-4 5z"/></svg></div><h4>Free Registration</h4><p>Get started without registration fees.</p></div>
+      <div class="why glass reveal d2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20.6 13.4l-7.2 7.2a2 2 0 0 1-2.8 0L3 13V3h10l7.6 7.6a2 2 0 0 1 0 2.8z"/><circle cx="7.5" cy="7.5" r="1.5"/></svg></div><h4>Flat Sell Fee</h4><p>Predictable costs regardless of the vehicle’s selling price.</p></div>
+      <div class="why glass reveal d3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 21V4M20 21V4M12 6v3M12 13v3M12 20v1"/></svg></div><h4>Commercial Lane Placement</h4><p>Strategic exposure alongside quality inventory.</p></div>
+      <div class="why glass reveal"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg></div><h4>Nationwide Selling</h4><p>Reach buyers beyond your local market.</p></div>
+      <div class="why glass reveal d1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 3v18M7 21h10M5 7h14"/><path d="M5 7l-3 7a3 3 0 0 0 6 0L5 7zM19 7l-3 7a3 3 0 0 0 6 0l-3-7z"/></svg></div><h4>Arbitration Support</h4><p>Experienced assistance throughout the resolution process.</p></div>
+      <div class="why glass reveal d2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="6" width="20" height="13" rx="2"/><circle cx="12" cy="12.5" r="2.5"/><path d="M6 10v.01M18 15v.01"/></svg></div><h4>Direct Seller Payments</h4><p>Proceeds are paid directly by the selling venue.</p></div>
+      <div class="why glass reveal d3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/><path d="M6 13l3-3 3 2 5-5"/></svg></div><h4>Active Sale Monitoring</h4><p>Our team monitors digital activity and vehicle performance.</p></div>
     </div>
     <div style="text-align:center;margin-top:46px" class="reveal">
       <a href="#contact" class="btn btn-primary">Sell With Us <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
@@ -853,7 +970,7 @@ if(SITE.gaId){var g=document.createElement('script');g.async=true;g.src='https:/
     <div class="head-center">
       <span class="eyebrow">Our Team</span>
       <h2 class="h-sec reveal">The people behind <span class="ln">your sales</span></h2>
-      <p class="sub-sec reveal d1">A dedicated team working to get your vehicles in front of the right buyers.</p>
+      <p class="sub-sec reveal d1">Whether you're looking to improve your selling percentage, expand your market exposure, or simply make remarketing easier, our team is ready to help.</p>
     </div>
     <div class="team-grid">
       <div class="member glass reveal">
@@ -872,54 +989,18 @@ if(SITE.gaId){var g=document.createElement('script');g.async=true;g.src='https:/
   </div>
 </section>
 
-<!-- CAREERS -->
-<section class="pad" id="careers">
-  <div class="wrap">
-    <div class="head-center">
-      <span class="eyebrow">Careers</span>
-      <h2 class="h-sec reveal">Join the Fleet Remarketing team</h2>
-      <p class="sub-sec reveal d1">We're growing fast across the country. If you're driven, dependable and love the automotive world, we'd love to meet you.</p>
-    </div>
-    <div class="perks">
-      <div class="perk glass reveal"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></div><h4>Competitive Pay</h4><p>Rewarding compensation &amp; bonuses</p></div>
-      <div class="perk glass reveal d1"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></div><h4>Real Growth</h4><p>Advance as the company scales</p></div>
-      <div class="perk glass reveal d2"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg></div><h4>Remote-Friendly</h4><p>Flexible roles across the U.S.</p></div>
-      <div class="perk glass reveal d3"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13A4 4 0 0 1 16 11"/></svg></div><h4>Great Team</h4><p>Supportive, driven people</p></div>
-    </div>
-    <div class="jobs">
-      <div class="job-row glass reveal">
-        <div class="job-info"><h4>Vehicle Inspection Specialist</h4><div class="job-meta"><span class="tag2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-11a7 7 0 1 0-14 0c0 4.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Chicago, IL</span><span class="tag2">Full-time</span><span class="tag2">Field</span></div></div>
-        <a href="#contact" class="job-apply">Apply Now</a>
-      </div>
-      <div class="job-row glass reveal d1">
-        <div class="job-info"><h4>Remarketing Account Manager</h4><div class="job-meta"><span class="tag2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-11a7 7 0 1 0-14 0c0 4.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Minneapolis, MN</span><span class="tag2">Full-time</span><span class="tag2">Sales</span></div></div>
-        <a href="#contact" class="job-apply">Apply Now</a>
-      </div>
-      <div class="job-row glass reveal d2">
-        <div class="job-info"><h4>Auction Operations Coordinator</h4><div class="job-meta"><span class="tag2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-11a7 7 0 1 0-14 0c0 4.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>Chicago, IL</span><span class="tag2">Full-time</span><span class="tag2">Operations</span></div></div>
-        <a href="#contact" class="job-apply">Apply Now</a>
-      </div>
-      <div class="job-row glass reveal d3">
-        <div class="job-info"><h4>Software Developer — Platform</h4><div class="job-meta"><span class="tag2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/></svg>Remote</span><span class="tag2">Full-time</span><span class="tag2">Engineering</span></div></div>
-        <a href="#contact" class="job-apply">Apply Now</a>
-      </div>
-    </div>
-    <p class="careers-cta reveal">Don't see your role? Send your resume to <a href="mailto:office@fleetremarket.com">office@fleetremarket.com</a></p>
-  </div>
-</section>
-
 <!-- APP -->
 <section class="pad">
   <div class="wrap">
     <div class="app-grid reveal">
-      <div class="app-media"><img loading="lazy" decoding="async" src="assets/app.webp" alt="Fleet Remarketing dealer app in use"></div>
+      <div class="app-media"><img loading="lazy" decoding="async" src="assets/app-rbf.webp" alt="Dealer holding up the Fleet Remarketing app on his phone"></div>
       <div class="app-info">
         <span class="eyebrow amber">Dealer App</span>
         <h2 class="h-sec" style="margin-top:14px">Sell on the go with the Fleet app</h2>
         <p class="sub-sec">Register vehicles, track auctions and stay on top of every sale — right from your phone. Available on iOS and Android.</p>
         <div class="badges">
-          <a href="#"><img loading="lazy" decoding="async" src="assets/app_badge_ios.webp" alt="Download on the App Store"></a>
-          <a href="#"><img loading="lazy" decoding="async" src="assets/app_badge_android.webp" alt="Get it on Google Play"></a>
+          <a href="#" data-store="appStoreUrl" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="assets/app_badge_ios.webp" alt="Download on the App Store"></a>
+          <a href="#" data-store="playStoreUrl" target="_blank" rel="noopener"><img loading="lazy" decoding="async" src="assets/app_badge_android.webp" alt="Get it on Google Play"></a>
         </div>
         <div class="qr">
           <img loading="lazy" decoding="async" src="assets/fleet_qr.webp" alt="Scan to download the app">
@@ -941,14 +1022,14 @@ if(SITE.gaId){var g=document.createElement('script');g.async=true;g.src='https:/
     <div class="contact-grid">
       <div class="reveal">
         <div class="offices">
-          <div class="office glass"><div class="pin"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-11a7 7 0 1 0-14 0c0 4.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h4>Minneapolis</h4><span>Minnesota</span></div>
+          <div class="office glass"><div class="pin"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-11a7 7 0 1 0-14 0c0 4.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h4>Houston</h4><span>Texas</span></div>
           <div class="office glass"><div class="pin"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s7-6.5 7-11a7 7 0 1 0-14 0c0 4.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg></div><h4>Chicago</h4><span>Illinois</span></div>
           <div class="office glass"><div class="pin"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><h4>Mon – Fri</h4><span>9:00 AM – 5:00 PM</span></div>
         </div>
         <div class="info-list">
-          <div class="info-row"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></div><div><b>Support Line</b><a href="tel:8553904700">855-390-4700</a> &nbsp;·&nbsp; <a href="tel:6083332111">608-333-2111</a> (after hours)</div></div>
-          <div class="info-row"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div><div><b>Email Us</b><a href="mailto:office@fleetremarket.com">office@fleetremarket.com</a></div></div>
-          <div class="info-row"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></div><div><b>Direct Line</b><a href="tel:7132020529">713-202-0529</a></div></div>
+          <div class="info-row"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8.1 9.6a16 16 0 0 0 6 6l1.1-1.1a2 2 0 0 1 2.1-.5c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg></div><div><b>Office Phone</b><a href="tel:7135640255">(713) 564-0255</a> &nbsp;·&nbsp; <a href="tel:7132020529">(713) 202-0529</a> &nbsp;·&nbsp; <a href="tel:2819890434">(281) 989-0434</a></div></div>
+          <div class="info-row"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 18v-6a9 9 0 0 1 18 0v6"/><path d="M21 19a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3zM3 19a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-3a2 2 0 0 0-2-2H3z"/></svg></div><div><b>Support Line / After Hours</b><a href="tel:2819890434">(281) 989-0434</a> &nbsp;·&nbsp; <a href="tel:8325621035">(832) 562-1035</a></div></div>
+          <div class="info-row"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div><div><b>Email Us</b><a href="mailto:office.fleetremarketing@gmail.com">office.fleetremarketing@gmail.com</a></div></div>
         </div>
       </div>
       <form class="form reveal d1" id="contactForm">
@@ -1000,9 +1081,9 @@ if(SITE.gaId){var g=document.createElement('script');g.async=true;g.src='https:/
           <a href="#" aria-label="Instagram"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
         </div>
       </div>
-      <div class="foot-col"><h5>Company</h5><a href="#about">About Us</a><a href="#remarketing">Remarketing</a><a href="#why">Why Choose Us</a><a href="#careers">Careers</a></div>
-      <div class="foot-col"><h5>Auctions We Use</h5><a href="#auctions">ACV Auctions</a><a href="#auctions">Manheim</a><a href="#auctions">OVE</a><a href="#auctions">ADESA</a></div>
-      <div class="foot-col"><h5>Contact</h5><a href="tel:8553904700">855-390-4700</a><a href="mailto:office@fleetremarket.com">office@fleetremarket.com</a><a href="#contact">Minneapolis · Chicago</a><a href="#contact">Mon–Fri, 9AM–5PM</a></div>
+      <div class="foot-col"><h5>Company</h5><a href="#about">About Us</a><a href="#process">How It Works</a><a href="#remarketing">Remarketing With Us</a><a href="#why">Why Us</a><a href="careers.html" target="_blank" rel="noopener">Careers</a></div>
+      <div class="foot-col"><h5>Auctions We Use</h5><a href="#auctions">ACV Auctions</a><a href="#auctions">Manheim</a><a href="#auctions">OVE</a><a href="#auctions">ADESA</a><a href="#auctions">America's Auto Auction</a></div>
+      <div class="foot-col"><h5>Contact</h5><a href="tel:7135640255">(713) 564-0255</a><a href="mailto:office.fleetremarketing@gmail.com">office.fleetremarketing@gmail.com</a><a href="#contact">Houston · Chicago</a><a href="#contact">Mon–Fri, 9AM–5PM</a></div>
     </div>
     <div class="foot-bottom">
       <span>© 2026 Fleet Remarketing. All rights reserved.</span>
@@ -1035,17 +1116,23 @@ mm.querySelectorAll('a').forEach(a=>a.onclick=()=>{burger.classList.remove('open
 
 // form delivery -> send.php (returns JSON {success})
 async function sendForm(form,subject,noteEl,okMsg){
-  const btn=form.querySelector('button[type=submit]');const d=Object.fromEntries(new FormData(form).entries());
+  const btn=form.querySelector('button[type=submit]');const d={};
+  for(const [k,v] of new FormData(form))d[k]=d[k]?d[k]+', '+v:v;   // multi-value fields (auction checkboxes) joined
   if(d._honey){return}
+  if(d.phone)d.phone='+1 '+d.phone.replace(/^\s*\+?1[\s-]*/,'');
   const payload={...d,_subject:subject,page:location.href};
   btn.disabled=true;noteEl.classList.remove('ok','err');noteEl.textContent='Sending…';
   try{const r=await fetch(SITE.formEndpoint,{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify(payload)});
     const j=await r.json().catch(()=>({}));
     if(r.ok&&j.success===true){noteEl.textContent=okMsg;noteEl.classList.add('ok');form.reset();if(window.gtag)gtag('event','generate_lead',{form:form.id})}
     else throw new Error(j.message||'send failed')}
-  catch(err){noteEl.textContent='Could not send — please call 855-390-4700 or email office@fleetremarket.com';noteEl.classList.add('err')}
+  catch(err){noteEl.textContent='Could not send — please call 713-564-0255 or email office.fleetremarketing@gmail.com';noteEl.classList.add('err')}
   btn.disabled=false}
 document.getElementById('heroForm').onsubmit=e=>{e.preventDefault();sendForm(e.target,'New dealer partner application — Fleet Remarketing',document.getElementById('heroFormNote'),'✓ Thanks! One of our reps will be in contact within 24 hours.')};
+
+// app store badges: links come from SITE settings; until set they stay inert
+document.querySelectorAll('[data-store]').forEach(a=>{const url=SITE[a.dataset.store];
+  if(url)a.href=url;else{a.removeAttribute('target');a.onclick=e=>e.preventDefault();a.title='Coming soon'}});
 
 // reveal
 const io=new IntersectionObserver((es)=>es.forEach(e=>e.target.classList.toggle('in',e.isIntersecting)),{threshold:.14});

@@ -41,13 +41,18 @@ $name    = $f('name', 120);
 $email   = $f('email', 200);
 $phone   = $f('phone', 60);
 $dealer  = $f('dealer', 160);
+$dtype   = $f('dealer_type', 40);
+$access  = $f('auction_access', 40);
+$address = $f('address', 200);
+$cityStZip = implode(', ', array_filter([$f('city', 80), trim($f('state', 20) . ' ' . $f('zip', 10))]));
+$auctions = $f('auctions', 200);
 $topic   = $f('topic', 120);
 $message = $f('message', 4000);
 $page    = $f('page', 300);
 $subject = $f('_subject', 150) ?: $cfg['subject_default'];
 
 if ($name === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) out(false, 'Please enter your name and a valid email.', 422);
-foreach ([$name, $email, $phone, $dealer, $topic, $subject] as $v) {
+foreach ([$name, $email, $phone, $dealer, $dtype, $access, $address, $cityStZip, $auctions, $topic, $subject] as $v) {
     if (preg_match('/[\r\n]/', $v)) out(false, 'Invalid input.', 422);   // header-injection guard
 }
 
@@ -57,6 +62,11 @@ $rows = array_filter([
     'Dealer'  => $dealer,
     'Email'   => $email,
     'Phone'   => $phone,
+    'Dealer type'      => $dtype,
+    '5 Million #'      => $access,
+    'Address'          => $address,
+    'City / State / Zip' => $cityStZip,
+    'Interested auctions' => $auctions,
     'Topic'   => $topic,
     'Message' => $message,
     'Page'    => $page,
@@ -67,7 +77,7 @@ $rows = array_filter([
 $text = '';
 $html = '<table cellpadding="8" style="border-collapse:collapse;font-family:Arial,sans-serif;font-size:14px">';
 foreach ($rows as $k => $v) {
-    $text .= str_pad($k . ':', 10) . $v . "\n";
+    $text .= str_pad($k . ':', 22) . $v . "\n";
     $html .= '<tr><td style="border:1px solid #ddd;background:#f5f5f5;font-weight:bold;vertical-align:top">' . htmlspecialchars($k)
            . '</td><td style="border:1px solid #ddd;white-space:pre-wrap">' . nl2br(htmlspecialchars($v)) . '</td></tr>';
 }
