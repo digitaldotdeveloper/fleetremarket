@@ -580,12 +580,48 @@ footer{background:var(--panel);color:var(--txt-2);padding:70px 0 30px;border-top
   .hf-head{padding:14px 14px 0}
 
   /* --- grids collapse to one column --- */
-  .stats-grid,.team-grid,.offices,.two-col,.perks,.ben-grid,.why-grid{grid-template-columns:1fr}
-  .auc-grid .auc-card{flex-basis:100%}
-  .hf-row{grid-template-columns:1fr}
+  .stats-grid,.team-grid,.two-col,.perks,.ben-grid,.why-grid{grid-template-columns:1fr}
+  .offices{gap:10px;margin-bottom:14px}
+  .office{padding:16px}
+  /* partner form: keep paired fields side by side, single row gap, tight chips */
+  .hf-row{gap:8px}
+  .hf-row .hf-field{margin-bottom:8px}
   .hf-row3{grid-template-columns:1.4fr 1fr 1fr}
-  .buyer-wall span{font-size:1.15rem;padding:14px 18px}
-  .proc-intro{padding:22px 20px}
+  .hero-form input,.hero-form select{padding:11px 12px}
+  .hf-tel span{left:11px}
+  .hero-form .hf-tel input{padding-left:33px}
+  .hf-auc{gap:6px;margin:2px 0 4px}
+  .hf-auc legend{margin-bottom:6px}
+  .hf-auc span{padding:6px 10px;font-size:.76rem;gap:5px}
+  .hf-auc span::before{width:11px;height:11px}
+  /* about: copy first, photo as a slim banner, no floating badge */
+  .about-row{gap:28px}
+  .about-row .feat-media .shot{aspect-ratio:16/9}
+  .about-row .feat-media .float,.about-row .feat-media .frame{display:none}
+  .about-lead{font-size:1.04rem}
+  /* how it works intro */
+  .proc-intro{padding:20px 18px;margin:-10px auto 28px}
+  .proc-intro p{font-size:.95rem}
+  .proc-intro .goal{font-size:1.02rem}
+  /* buyers */
+  .buyer-wall{gap:8px}
+  .buyer-wall span{font-size:1rem;padding:11px 14px}
+  /* auctions: compact rows — logo tile left, text right */
+  .auc-grid{gap:12px}
+  .auc-grid .auc-card{flex-basis:100%;flex-direction:row;align-items:center;gap:14px;padding:14px}
+  .auc-logo{flex:0 0 92px;height:62px;padding:8px 10px}
+  .auc-logo img{max-height:40px}
+  .auc-logo .wm{font-size:1rem}
+  .auc-card h4{font-size:1rem;margin-bottom:3px}
+  .auc-card p{font-size:.84rem;line-height:1.45}
+  /* why us: compact list — icon left, text right */
+  .why-grid{gap:10px}
+  .why{display:grid;grid-template-columns:44px 1fr;column-gap:14px;row-gap:2px;align-items:start;padding:16px}
+  .why .ic{grid-row:span 2;width:44px;height:44px;border-radius:12px;margin:0}
+  .why .ic svg{width:21px;height:21px}
+  .why h4{font-size:1rem;align-self:end}
+  .why p{font-size:.86rem}
+  #why .sub-sec{font-size:.94rem}
   .team-grid{max-width:320px;margin:0 auto}
   .stat{border-right:none;border-bottom:1px solid var(--line);padding:26px 24px;text-align:center;align-items:center}
   .stat:last-child{border-bottom:none}
@@ -734,7 +770,7 @@ if(SITE.gaId){var g=document.createElement('script');g.async=true;g.src='https:/
             <form id="heroForm">
               <div class="hf-field"><input type="text" name="name" placeholder="Full Name" required aria-label="Full Name" autocomplete="name"></div>
               <div class="hf-row">
-                <div class="hf-field hf-tel"><span>+1</span><input type="tel" name="phone" placeholder="Phone Number" required aria-label="Phone Number" autocomplete="tel-national"></div>
+                <div class="hf-field hf-tel"><span>+1</span><input type="tel" name="phone" placeholder="Phone" required aria-label="Phone Number" autocomplete="tel-national"></div>
                 <div class="hf-field"><input type="email" name="email" placeholder="Email" required aria-label="Email" autocomplete="email"></div>
               </div>
               <div class="hf-row">
