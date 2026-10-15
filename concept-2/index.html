@@ -226,13 +226,13 @@ header.nav.scrolled .nav-shell{background:var(--nav-bg);backdrop-filter:blur(18p
 .hf-head span{display:block;font-size:.86rem;color:var(--txt-2);margin-top:4px}
 .hf-body{padding:18px 18px 20px}
 .hf-field{margin-bottom:10px}
-.hero-form input,.hero-form select{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line-2);
+:is(.hero-form,.pf) input,:is(.hero-form,.pf) select{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--line-2);
   background:var(--panel);color:var(--ink);font-family:inherit;font-size:.9rem;outline:none;transition:.2s}
-.hero-form input::placeholder{color:var(--txt-2)}
-.hero-form select{color:var(--txt-2)}
-.hero-form select option{color:#22130b}
-.hero-form input:focus,.hero-form select:focus{border-color:var(--brand);box-shadow:0 0 0 4px var(--brand-soft)}
-.hero-form .btn{width:100%;justify-content:center;margin-top:6px}
+:is(.hero-form,.pf) input::placeholder{color:var(--txt-2)}
+:is(.hero-form,.pf) select{color:var(--txt-2)}
+:is(.hero-form,.pf) select option{color:#22130b}
+:is(.hero-form,.pf) input:focus,:is(.hero-form,.pf) select:focus{border-color:var(--brand);box-shadow:0 0 0 4px var(--brand-soft)}
+:is(.hero-form,.pf) .btn{width:100%;justify-content:center;margin-top:6px}
 .hf-secure{display:flex;align-items:center;justify-content:center;gap:7px;font-size:.8rem;font-weight:500;color:var(--txt);margin-top:12px}
 .hf-secure svg{width:14px;height:14px;color:var(--brand)}
 .hf-secure.ok{color:var(--brand)}
@@ -241,8 +241,8 @@ header.nav.scrolled .nav-shell{background:var(--nav-bg);backdrop-filter:blur(18p
 .hf-row .hf-field{min-width:0}
 .hf-tel{position:relative}
 .hf-tel span{position:absolute;left:13px;top:50%;transform:translateY(-50%);font-size:.9rem;font-weight:600;color:var(--ink);pointer-events:none}
-.hero-form .hf-tel input{padding-left:38px}
-.hero-form select:valid{color:var(--ink)}
+:is(.hero-form,.pf) .hf-tel input{padding-left:38px}
+:is(.hero-form,.pf) select:valid{color:var(--ink)}
 .hf-auc{border:0;margin:4px 0 6px;display:flex;flex-wrap:wrap;gap:7px}
 .hf-auc legend{font-size:.8rem;font-weight:600;color:var(--txt-2);margin-bottom:7px;padding:0}
 .hf-auc label{cursor:pointer}
@@ -474,6 +474,8 @@ header.nav.scrolled .nav-shell{background:var(--nav-bg);backdrop-filter:blur(18p
 .form-note{font-size:.82rem;color:var(--txt-3);margin-top:12px;text-align:center}
 .form-note.ok{color:var(--brand)}
 .form-note.err,.hf-secure.err{color:#ff7b7b}
+.pf>.hf-secure{margin-bottom:0;font-size:.8rem}
+.pf>.hf-secure:not(.ok):not(.err){color:var(--txt)}
 
 /* ============ CTA BAND ============ */
 .cta-band{padding:90px 0}
@@ -543,7 +545,7 @@ footer{background:var(--panel);color:var(--txt-2);padding:70px 0 30px;border-top
   .tb-right .tb-hide{display:none}
   .topbar-inner{justify-content:center;height:40px}
   .tb-right{gap:0}
-  .hero-form input,.hero-form select,.field input,.field textarea,.field select{font-size:16px}
+  :is(.hero-form,.pf) input,:is(.hero-form,.pf) select,.field input,.field textarea,.field select{font-size:16px}
 }
 @media(max-width:600px){
   /* --- vertical rhythm + type scale --- */
@@ -592,9 +594,9 @@ footer{background:var(--panel);color:var(--txt-2);padding:70px 0 30px;border-top
   .hf-row{gap:8px}
   .hf-row .hf-field{margin-bottom:8px}
   .hf-row3{grid-template-columns:1.4fr 1fr 1fr}
-  .hero-form input,.hero-form select{padding:11px 12px}
+  :is(.hero-form,.pf) input,.hero-form select{padding:11px 12px}
   .hf-tel span{left:11px}
-  .hero-form .hf-tel input{padding-left:33px}
+  :is(.hero-form,.pf) .hf-tel input{padding-left:33px}
   .hf-auc{gap:6px;margin:2px 0 4px}
   .hf-auc legend{margin-bottom:6px}
   .hf-auc span{padding:6px 10px;font-size:.76rem;gap:5px}
@@ -1076,21 +1078,36 @@ if(SITE.gaId){var g=document.createElement('script');g.async=true;g.src='https:/
           <div class="info-row"><div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div><div><b>Email Us</b><a href="mailto:office.fleetremarketing@gmail.com">office.fleetremarketing@gmail.com</a></div></div>
         </div>
       </div>
-      <form class="form reveal d1" id="contactForm">
-        <h3>Send us a message</h3>
-        <p>Tell us about your inventory and we'll get back to you fast.</p>
-        <div class="two-col">
-          <div class="field"><label>Full name</label><input type="text" name="name" required placeholder="John Dealer"></div>
-          <div class="field"><label>Phone</label><input type="tel" name="phone" required placeholder="(555) 000-0000"></div>
+      <form class="form pf reveal d1" id="contactForm">
+        <h3>Partner Up</h3>
+        <p>Apply to sell under our lanes.</p>
+        <div class="hf-field"><input type="text" name="name" placeholder="Full Name" required aria-label="Full Name" autocomplete="name"></div>
+        <div class="hf-row">
+          <div class="hf-field hf-tel"><span>+1</span><input type="tel" name="phone" placeholder="Phone" required aria-label="Phone Number" autocomplete="tel-national"></div>
+          <div class="hf-field"><input type="email" name="email" placeholder="Email" required aria-label="Email" autocomplete="email"></div>
         </div>
-        <div class="field"><label>Email</label><input type="email" name="email" required placeholder="you@dealership.com"></div>
-        <div class="field"><label>How can we help?</label>
-          <select name="topic"><option>Sell my vehicles</option><option>Request an inspection</option><option>Auction to my lot</option><option>App / account support</option><option>Something else</option></select>
+        <div class="hf-row">
+          <div class="hf-field"><select name="dealer_type" required aria-label="Dealer Type"><option value="" disabled selected>Dealer Type</option><option>Used</option><option>New</option><option>Commercial</option></select></div>
+          <div class="hf-field"><input type="text" name="auction_access" placeholder="5 Million #" title="Your AuctionACCESS 5 Million number" inputmode="numeric" aria-label="5 Million Number (AuctionACCESS)"></div>
         </div>
-        <div class="field"><label>Message</label><textarea name="message" placeholder="Share VINs, volume, or anything else…"></textarea><input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off"></div>
-        <button type="submit" class="btn btn-primary btn-block">Send Message
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z"/></svg></button>
-        <p class="form-note" id="formNote">We typically reply within one business day.</p>
+        <div class="hf-field"><input type="text" name="address" placeholder="Dealership Address" aria-label="Dealership Address" autocomplete="street-address"></div>
+        <div class="hf-row hf-row3">
+          <div class="hf-field"><input type="text" name="city" placeholder="City" aria-label="City" autocomplete="address-level2"></div>
+          <div class="hf-field"><input type="text" name="state" placeholder="State" maxlength="20" aria-label="State" autocomplete="address-level1"></div>
+          <div class="hf-field"><input type="text" name="zip" placeholder="Zip" maxlength="10" inputmode="numeric" aria-label="Zip code" autocomplete="postal-code"></div>
+        </div>
+        <fieldset class="hf-auc">
+          <legend>Interested Auctions</legend>
+          <label><input type="checkbox" name="auctions" value="ACV"><span>ACV</span></label>
+          <label><input type="checkbox" name="auctions" value="Manheim"><span>Manheim</span></label>
+          <label><input type="checkbox" name="auctions" value="OVE"><span>OVE</span></label>
+          <label><input type="checkbox" name="auctions" value="ADESA"><span>ADESA</span></label>
+          <label><input type="checkbox" name="auctions" value="America's Auto Auction"><span>America's</span></label>
+        </fieldset>
+        <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+        <button type="submit" class="btn btn-primary">Get Started
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <p class="hf-secure" id="formNote"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg>Your info is secure and confidential.</p>
       </form>
     </div>
   </div>
@@ -1189,7 +1206,7 @@ const cio=new IntersectionObserver((es)=>es.forEach(e=>{if(!e.isIntersecting)ret
     span.textContent=Math.round(end*ease);if(p<1)requestAnimationFrame(tick)};requestAnimationFrame(tick);}),{threshold:.6});
 document.querySelectorAll('.num[data-count]').forEach(el=>cio.observe(el));
 
-document.getElementById('contactForm').onsubmit=e=>{e.preventDefault();sendForm(e.target,'New contact message — Fleet Remarketing',document.getElementById('formNote'),'✓ Thanks! Your message is on its way — we typically reply within one business day.')};
+document.getElementById('contactForm').onsubmit=e=>{e.preventDefault();sendForm(e.target,'New dealer partner application — Fleet Remarketing (bottom form)',document.getElementById('formNote'),'✓ Thanks! One of our reps will be in contact within 24 hours.')};
 </script>
 </body>
 </html>
