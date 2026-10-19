@@ -43,7 +43,9 @@ In the Gmail account: Google Account → Security → 2-Step Verification → Ap
 1. Open the first form email (check Spam if needed) and click **Report not spam**.
 2. Gmail → Settings → Filters → Create filter → From: `noreply@<your domain>` → check **Never send it to Spam** and **Star it**.
 
-## Website traffic — Google Analytics 4
-1. Sign in to https://analytics.google.com with the Gmail above → Create property "Fleet Remarketing" → Web data stream with the site URL.
-2. Copy the Measurement ID (`G-…`) into `gaId` in the `SITE SETTINGS` block at the top of `index.html`. Traffic, sources, pages and form submissions (event `generate_lead`) appear in Reports within a day.
-3. Optional: https://search.google.com/search-console with the same Gmail to see Google search traffic.
+## Website traffic — Google Analytics 4 (already installed)
+1. The tracking code is already in `index.html` and `careers.html` (`gaId: 'G-J0QYY2QFH0'` in the `SITE SETTINGS` block). Nothing to install; it starts counting as soon as the site is live.
+2. To see the traffic: sign in to https://analytics.google.com with the Google account that owns this property → Reports. **Realtime** shows visitors within seconds; full reports (sources, pages, devices, cities) fill in within 24 hours. Each form submission is recorded as the event `generate_lead`.
+3. To give someone else access: Admin → Property access management → **+** → their Gmail → role Viewer (or Administrator).
+4. Once the domain is live: Admin → Data streams → Website → set the URL to `https://fleetremarket.com` (cosmetic; tracking works without it).
+5. Optional: https://search.google.com/search-console with the same Gmail to see Google search traffic.
