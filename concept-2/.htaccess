@@ -1,4 +1,4 @@
-# keep the settings file private
+# Block access to config files
 <Files ~ "^config(\.local)?\.php$">
   Require all denied
 </Files>

@@ -1,15 +1,11 @@
 <?php
-/**
- * Fleet Remarketing — form mailer
- * Receives the website forms (JSON or classic POST) and emails them to to_email.
- * Settings live in config.php next to this file.
- */
+// Website form handler. Settings are in config.php.
 declare(strict_types=1);
 header('Content-Type: application/json; charset=utf-8');
 header('X-Content-Type-Options: nosniff');
 
 $cfg = require __DIR__ . '/config.php';
-if (is_file(__DIR__ . '/config.local.php')) $cfg = array_replace_recursive($cfg, require __DIR__ . '/config.local.php');   // optional local overrides
+if (is_file(__DIR__ . '/config.local.php')) $cfg = array_replace_recursive($cfg, require __DIR__ . '/config.local.php');
 
 function out(bool $ok, string $msg, int $code = 200): never {
     http_response_code($code);
@@ -19,7 +15,7 @@ function out(bool $ok, string $msg, int $code = 200): never {
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') out(false, 'Method not allowed', 405);
 
-// ---- read input (JSON from the site, or a normal form post)
+// Input
 $d = [];
 if (str_starts_with($_SERVER['CONTENT_TYPE'] ?? '', 'application/json')) {
     $d = json_decode(file_get_contents('php://input') ?: '', true) ?: [];
@@ -28,15 +24,15 @@ if (str_starts_with($_SERVER['CONTENT_TYPE'] ?? '', 'application/json')) {
 }
 $f = fn(string $k, int $max = 300) => mb_substr(trim((string)($d[$k] ?? '')), 0, $max);
 
-// ---- spam gates
-if ($f('_honey') !== '') out(true, 'ok');                       // bot filled the hidden field: pretend success
+// Spam checks
+if ($f('_honey') !== '') out(true, 'ok');
 $rateFile = sys_get_temp_dir() . '/fr-form-' . md5($_SERVER['REMOTE_ADDR'] ?? '') . '.txt';
 $hits = is_file($rateFile) ? array_filter(array_map('intval', file($rateFile)), fn($t) => $t > time() - 3600) : [];
 if (count($hits) >= (int)$cfg['max_per_hour']) out(false, 'Too many requests, please try again later.', 429);
 $hits[] = time();
 @file_put_contents($rateFile, implode("\n", $hits));
 
-// ---- validate
+// Validation
 $name    = $f('name', 120);
 $email   = $f('email', 200);
 $phone   = $f('phone', 60);
@@ -53,10 +49,10 @@ $subject = $f('_subject', 150) ?: $cfg['subject_default'];
 
 if ($name === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) out(false, 'Please enter your name and a valid email.', 422);
 foreach ([$name, $email, $phone, $dealer, $dtype, $access, $address, $cityStZip, $auctions, $topic, $subject] as $v) {
-    if (preg_match('/[\r\n]/', $v)) out(false, 'Invalid input.', 422);   // header-injection guard
+    if (preg_match('/[\r\n]/', $v)) out(false, 'Invalid input.', 422);
 }
 
-// ---- build the email (plain text + simple HTML table)
+// Email body
 $rows = array_filter([
     'Name'    => $name,
     'Dealer'  => $dealer,
@@ -89,14 +85,13 @@ $sent = ($cfg['transport'] === 'smtp')
 
 $sent ? out(true, 'Message sent.') : out(false, 'Could not send the message right now.', 500);
 
-// =====================================================================
 function mime_body(string $text, string $html, string $boundary): string {
     return "--$boundary\r\nContent-Type: text/plain; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n\r\n$text\r\n"
          . "--$boundary\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n\r\n$html\r\n--$boundary--\r\n";
 }
 function enc(string $s): string { return '=?UTF-8?B?' . base64_encode($s) . '?='; }
 
-/** Transport A: the hosting's own mail() (cPanel/Exim). From must be an address on the site's domain. */
+// Send with the server's mail()
 function php_mail_send(array $cfg, string $subject, string $text, string $html, string $replyTo, string $replyName): bool {
     $b = 'b' . bin2hex(random_bytes(12));
     $headers = "From: " . enc($cfg['from_name']) . " <{$cfg['from_email']}>\r\n"
@@ -107,7 +102,7 @@ function php_mail_send(array $cfg, string $subject, string $text, string $html, 
     return $ok;
 }
 
-/** Transport B: authenticated SMTP with STARTTLS (e.g. smtp.gmail.com:587 + Gmail app password). No libraries needed. */
+// Send through an SMTP server (e.g. Gmail)
 function smtp_send(array $cfg, string $subject, string $text, string $html, string $replyTo, string $replyName): bool {
     $s = $cfg['smtp'];
     $fp = @stream_socket_client("tcp://{$s['host']}:{$s['port']}", $errno, $errstr, 15);

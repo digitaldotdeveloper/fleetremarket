@@ -1,26 +1,23 @@
 <?php
-// ===== Fleet Remarketing form settings =====
-// Server-side only: visitors can never read this file (also blocked by .htaccess).
+// Form settings
 return [
-    // where submissions are delivered
+    // Where form submissions are sent
     'to_email'        => 'remarketingf@gmail.com',
     'subject_default' => 'New message from the Fleet Remarketing website',
 
-    // sender shown on the email. For transport 'mail' this MUST be an address on the site's own domain
-    // (e.g. noreply@fleetremarket.com) so SPF/DKIM pass and Gmail does not flag it as spam.
+    // Sender address, must be on the website's own domain
     'from_email' => 'noreply@fleetremarket.com',
     'from_name'  => 'Fleet Remarketing Website',
 
-    // 'mail' = the hosting's built-in mail (cPanel)  - use this on the live server.
-    // 'smtp' = log in to an SMTP server (e.g. Gmail) - needed for local testing, or if 'mail' lands in spam.
+    // 'mail' on the live server, 'smtp' to send through Gmail instead
     'transport' => 'mail',
     'smtp' => [
         'host' => 'smtp.gmail.com',
         'port' => 587,
         'user' => 'remarketingf@gmail.com',
-        'pass' => '',   // Gmail "App password": Google Account > Security > 2-Step Verification > App passwords
+        'pass' => '',  // Gmail app password
     ],
 
-    // anti-abuse: max submissions per visitor IP per hour
+    // Max submissions per visitor per hour
     'max_per_hour' => 10,
 ];
