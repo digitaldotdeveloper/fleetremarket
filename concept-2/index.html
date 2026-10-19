@@ -52,7 +52,7 @@
   --hero-scrim:linear-gradient(90deg,rgba(10,8,7,.94) 0%,rgba(10,8,7,.78) 30%,rgba(10,8,7,.45) 58%,rgba(10,8,7,.12) 82%,rgba(10,8,7,0) 100%),linear-gradient(0deg,rgba(10,8,7,.7),transparent 44%),linear-gradient(180deg,rgba(10,8,7,.78) 0%,rgba(10,8,7,.42) 13%,rgba(10,8,7,0) 30%);
   --hero-scrim-m:linear-gradient(180deg,rgba(10,8,7,.9) 0%,rgba(10,8,7,.62) 52%,rgba(10,8,7,.86) 100%);
   --hero-tsh:0 2px 30px rgba(0,0,0,.55);
-  --nav-bg:rgba(14,11,9,.72); --topbar-bg:rgba(255,255,255,.025);
+  --nav-bg:rgba(14,11,9,.96); --topbar-bg:rgba(255,255,255,.025);
   --card-img-scrim:linear-gradient(to top,rgba(8,6,5,.82),transparent 55%);
   --float-bg:rgba(20,16,13,.9);
   --r:18px; --r-sm:12px; --maxw:1200px;
@@ -79,7 +79,7 @@
   --hero-scrim:linear-gradient(90deg,rgba(255,255,255,.98) 0%,rgba(255,255,255,.9) 30%,rgba(255,255,255,.62) 54%,rgba(255,255,255,.2) 80%,rgba(255,255,255,0) 100%),linear-gradient(0deg,rgba(255,255,255,.34),transparent 42%),linear-gradient(180deg,rgba(255,255,255,.9) 0%,rgba(255,255,255,.55) 13%,rgba(255,255,255,0) 30%);
   --hero-scrim-m:linear-gradient(180deg,rgba(251,247,243,.94) 0%,rgba(251,247,243,.66) 52%,rgba(251,247,243,.9) 100%);
   --hero-tsh:0 1px 20px rgba(255,255,255,.9),0 2px 6px rgba(255,255,255,.7);
-  --nav-bg:rgba(255,255,255,.82); --topbar-bg:rgba(58,30,16,.03);
+  --nav-bg:rgba(255,255,255,.96); --topbar-bg:rgba(58,30,16,.03);
   --card-img-scrim:linear-gradient(to top,rgba(8,10,9,.66),transparent 55%);
   --float-bg:rgba(255,255,255,.95);
 }
@@ -148,6 +148,7 @@ header.nav{position:fixed;top:0;left:0;right:0;z-index:100;transition:.35s ease}
 .tb-div{width:1px;height:15px;background:var(--line-2)}
 .tb-hide{display:inline-flex}
 .nav-shell{transition:.35s ease;border-bottom:1px solid transparent}
+header.nav.scrolled .topbar{background:var(--nav-bg)}
 header.nav.scrolled .nav-shell{background:var(--nav-bg);backdrop-filter:blur(18px) saturate(1.4);-webkit-backdrop-filter:blur(18px) saturate(1.4);
   border-bottom-color:var(--line);box-shadow:0 16px 40px -22px rgba(0,0,0,.6)}
 .nav-inner{max-width:var(--maxw);margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:74px}
@@ -777,13 +778,14 @@ if(SITE.gaId){var g=document.createElement('script');g.async=true;g.src='https:/
           <div class="hf-body">
             <form id="heroForm">
               <div class="hf-field"><input type="text" name="name" placeholder="Full Name" required aria-label="Full Name" autocomplete="name"></div>
+              <div class="hf-field"><input type="text" name="dealer" placeholder="Dealership Name" required aria-label="Dealership Name" autocomplete="organization"></div>
               <div class="hf-row">
                 <div class="hf-field hf-tel"><span>+1</span><input type="tel" name="phone" placeholder="Phone" required aria-label="Phone Number" autocomplete="tel-national"></div>
                 <div class="hf-field"><input type="email" name="email" placeholder="Email" required aria-label="Email" autocomplete="email"></div>
               </div>
               <div class="hf-row">
-                <div class="hf-field"><select name="dealer_type" required aria-label="Dealer Type"><option value="" disabled selected>Dealer Type</option><option>Used</option><option>New</option><option>Commercial</option></select></div>
-                <div class="hf-field"><input type="text" name="auction_access" placeholder="5 Million #" title="Your AuctionACCESS 5 Million number" inputmode="numeric" aria-label="5 Million Number (AuctionACCESS)"></div>
+                <div class="hf-field"><select name="dealer_type" required aria-label="Dealer Type"><option value="" disabled selected>Dealer Type</option><option>Wholesale</option><option>Retailer</option><option>Both</option></select></div>
+                <div class="hf-field"><input type="text" name="auction_access" placeholder="5 Million # (optional)" title="Your AuctionACCESS 5 Million number — optional" inputmode="numeric" aria-label="5 Million Number (AuctionACCESS)"></div>
               </div>
               <div class="hf-field"><input type="text" name="address" placeholder="Dealership Address" aria-label="Dealership Address" autocomplete="street-address"></div>
               <div class="hf-row hf-row3">
@@ -1082,13 +1084,14 @@ if(SITE.gaId){var g=document.createElement('script');g.async=true;g.src='https:/
         <h3>Partner Up</h3>
         <p>Apply to sell under our lanes.</p>
         <div class="hf-field"><input type="text" name="name" placeholder="Full Name" required aria-label="Full Name" autocomplete="name"></div>
+        <div class="hf-field"><input type="text" name="dealer" placeholder="Dealership Name" required aria-label="Dealership Name" autocomplete="organization"></div>
         <div class="hf-row">
           <div class="hf-field hf-tel"><span>+1</span><input type="tel" name="phone" placeholder="Phone" required aria-label="Phone Number" autocomplete="tel-national"></div>
           <div class="hf-field"><input type="email" name="email" placeholder="Email" required aria-label="Email" autocomplete="email"></div>
         </div>
         <div class="hf-row">
-          <div class="hf-field"><select name="dealer_type" required aria-label="Dealer Type"><option value="" disabled selected>Dealer Type</option><option>Used</option><option>New</option><option>Commercial</option></select></div>
-          <div class="hf-field"><input type="text" name="auction_access" placeholder="5 Million #" title="Your AuctionACCESS 5 Million number" inputmode="numeric" aria-label="5 Million Number (AuctionACCESS)"></div>
+          <div class="hf-field"><select name="dealer_type" required aria-label="Dealer Type"><option value="" disabled selected>Dealer Type</option><option>Wholesale</option><option>Retailer</option><option>Both</option></select></div>
+          <div class="hf-field"><input type="text" name="auction_access" placeholder="5 Million # (optional)" title="Your AuctionACCESS 5 Million number — optional" inputmode="numeric" aria-label="5 Million Number (AuctionACCESS)"></div>
         </div>
         <div class="hf-field"><input type="text" name="address" placeholder="Dealership Address" aria-label="Dealership Address" autocomplete="street-address"></div>
         <div class="hf-row hf-row3">
