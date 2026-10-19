@@ -5,12 +5,12 @@ return [
     'to_email'        => 'remarketingf@gmail.com',
     'subject_default' => 'New message from the Fleet Remarketing website',
 
-    // Sender address, must be on the website's own domain
-    'from_email' => 'noreply@fleetremarket.com',
+    // Sender address (the Gmail account below)
+    'from_email' => 'remarketingf@gmail.com',
     'from_name'  => 'Fleet Remarketing Website',
 
-    // 'mail' on the live server, 'smtp' to send through Gmail instead
-    'transport' => 'mail',
+    // Sent through Gmail
+    'transport' => 'smtp',
     'smtp' => [
         'host' => 'smtp.gmail.com',
         'port' => 587,
