@@ -3,4 +3,4 @@ Allow: /
 Disallow: /send.php
 Disallow: /config.php
 
-Sitemap: https://fleetremarket.com/sitemap.xml
+Sitemap: https://remarketingbyfleet.com/sitemap.xml
