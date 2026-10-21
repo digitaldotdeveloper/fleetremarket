@@ -9,8 +9,7 @@ return [
     'from_email' => 'remarketingf@gmail.com',
     'from_name'  => 'Fleet Remarketing Website',
 
-    // Sent through Gmail
-    'transport' => 'smtp',
+    // SMTP login (Gmail). PHP mail() is not used.
     'smtp' => [
         'host' => 'smtp.gmail.com',
         'port' => 587,

@@ -79,9 +79,7 @@ foreach ($rows as $k => $v) {
 }
 $html .= '</table>';
 
-$sent = ($cfg['transport'] === 'smtp')
-    ? smtp_send($cfg, $subject, $text, $html, $email, $name)
-    : php_mail_send($cfg, $subject, $text, $html, $email, $name);
+$sent = smtp_send($cfg, $subject, $text, $html, $email, $name);
 
 $sent ? out(true, 'Message sent.') : out(false, 'Could not send the message right now.', 500);
 
@@ -90,17 +88,6 @@ function mime_body(string $text, string $html, string $boundary): string {
          . "--$boundary\r\nContent-Type: text/html; charset=UTF-8\r\nContent-Transfer-Encoding: 8bit\r\n\r\n$html\r\n--$boundary--\r\n";
 }
 function enc(string $s): string { return '=?UTF-8?B?' . base64_encode($s) . '?='; }
-
-// Send with the server's mail()
-function php_mail_send(array $cfg, string $subject, string $text, string $html, string $replyTo, string $replyName): bool {
-    $b = 'b' . bin2hex(random_bytes(12));
-    $headers = "From: " . enc($cfg['from_name']) . " <{$cfg['from_email']}>\r\n"
-             . "Reply-To: " . enc($replyName) . " <$replyTo>\r\n"
-             . "MIME-Version: 1.0\r\nContent-Type: multipart/alternative; boundary=\"$b\"\r\nX-Mailer: FleetRemarketing-Form";
-    $ok = @mail($cfg['to_email'], enc($subject), mime_body($text, $html, $b), $headers, '-f' . $cfg['from_email']);
-    if (!$ok) error_log('mail() failed: ' . (error_get_last()['message'] ?? 'unknown'));
-    return $ok;
-}
 
 // Send through an SMTP server (e.g. Gmail)
 function smtp_send(array $cfg, string $subject, string $text, string $html, string $replyTo, string $replyName): bool {
