@@ -1,0 +1,25 @@
+Getting Google to show the new remarketingbyfleet.com (old logo / "About {{Us}}" results)
+=========================================================================================
+
+Those Google results are Google's saved copy of the OLD website. They update by themselves
+when Google re-visits the site, but these steps make it happen in days instead of weeks.
+
+0. Upload FleetRemarket-Website-READY.zip to cPanel first (extract over the old files).
+
+1. Go to https://search.google.com/search-console and sign in with remarketingf@gmail.com
+   (the same account as Google Analytics).
+
+2. Add property -> "URL prefix" -> https://remarketingbyfleet.com/
+   Verify with "Google Analytics" (one click, the site already has Analytics).
+
+3. Left menu -> Sitemaps -> enter  sitemap.xml  -> Submit.
+
+4. Top search bar -> paste https://remarketingbyfleet.com/ -> "Request indexing".
+   Do the same for https://remarketingbyfleet.com/careers.html
+
+5. Left menu -> Removals -> New request -> enter the link of any old page still showing in
+   Google (e.g. the "About {{Us}}" result). Those pages no longer exist on the new site,
+   so once removed they stay gone.
+
+Title and description usually update within a few days. The small logo icon next to the
+result is the slowest part and can take 1-3 weeks.
